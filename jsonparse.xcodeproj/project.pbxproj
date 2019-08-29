@@ -12,6 +12,13 @@
 		3E2ADEE223158564009212EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE023158564009212EC /* Main.storyboard */; };
 		3E2ADEE423158565009212EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE323158565009212EC /* Assets.xcassets */; };
 		3E2ADEE723158565009212EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE523158565009212EC /* LaunchScreen.storyboard */; };
+		3ECC169D231848D8001FECF6 /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC169C231848D8001FECF6 /* Gif.swift */; };
+		3ECC16A22318529E001FECF6 /* Sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A12318529E001FECF6 /* Sunny.gif */; };
+		3ECC16A6231859B2001FECF6 /* Cloudy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A3231859B2001FECF6 /* Cloudy.gif */; };
+		3ECC16A7231859B2001FECF6 /* Rainy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A4231859B2001FECF6 /* Rainy.gif */; };
+		3ECC16A8231859B2001FECF6 /* Dawn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A5231859B2001FECF6 /* Dawn.gif */; };
+		3ECC16AB231859C0001FECF6 /* Sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A9231859C0001FECF6 /* Sunset.gif */; };
+		3ECC16AC231859C0001FECF6 /* Snow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16AA231859C0001FECF6 /* Snow.gif */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +29,13 @@
 		3E2ADEE323158565009212EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E2ADEE623158565009212EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2ADEE823158565009212EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ECC169C231848D8001FECF6 /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		3ECC16A12318529E001FECF6 /* Sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunny.gif; sourceTree = "<group>"; };
+		3ECC16A3231859B2001FECF6 /* Cloudy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cloudy.gif; sourceTree = "<group>"; };
+		3ECC16A4231859B2001FECF6 /* Rainy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Rainy.gif; sourceTree = "<group>"; };
+		3ECC16A5231859B2001FECF6 /* Dawn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Dawn.gif; sourceTree = "<group>"; };
+		3ECC16A9231859C0001FECF6 /* Sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunset.gif; sourceTree = "<group>"; };
+		3ECC16AA231859C0001FECF6 /* Snow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Snow.gif; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +69,28 @@
 			isa = PBXGroup;
 			children = (
 				3E2ADEDC23158564009212EC /* AppDelegate.swift */,
+				3ECC169E23184E92001FECF6 /* Gif */,
 				3E2ADEDE23158564009212EC /* weatherViewController.swift */,
+				3ECC169C231848D8001FECF6 /* Gif.swift */,
 				3E2ADEE023158564009212EC /* Main.storyboard */,
 				3E2ADEE323158565009212EC /* Assets.xcassets */,
 				3E2ADEE523158565009212EC /* LaunchScreen.storyboard */,
 				3E2ADEE823158565009212EC /* Info.plist */,
 			);
 			path = jsonparse;
+			sourceTree = "<group>";
+		};
+		3ECC169E23184E92001FECF6 /* Gif */ = {
+			isa = PBXGroup;
+			children = (
+				3ECC16A12318529E001FECF6 /* Sunny.gif */,
+				3ECC16A3231859B2001FECF6 /* Cloudy.gif */,
+				3ECC16A5231859B2001FECF6 /* Dawn.gif */,
+				3ECC16A4231859B2001FECF6 /* Rainy.gif */,
+				3ECC16AA231859C0001FECF6 /* Snow.gif */,
+				3ECC16A9231859C0001FECF6 /* Sunset.gif */,
+			);
+			path = Gif;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,8 +151,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3ECC16AB231859C0001FECF6 /* Sunset.gif in Resources */,
 				3E2ADEE723158565009212EC /* LaunchScreen.storyboard in Resources */,
 				3E2ADEE423158565009212EC /* Assets.xcassets in Resources */,
+				3ECC16A7231859B2001FECF6 /* Rainy.gif in Resources */,
+				3ECC16A6231859B2001FECF6 /* Cloudy.gif in Resources */,
+				3ECC16AC231859C0001FECF6 /* Snow.gif in Resources */,
+				3ECC16A8231859B2001FECF6 /* Dawn.gif in Resources */,
+				3ECC16A22318529E001FECF6 /* Sunny.gif in Resources */,
 				3E2ADEE223158564009212EC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,6 +172,7 @@
 			files = (
 				3E2ADEDF23158564009212EC /* weatherViewController.swift in Sources */,
 				3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */,
+				3ECC169D231848D8001FECF6 /* Gif.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

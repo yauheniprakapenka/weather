@@ -10,6 +10,7 @@ import UIKit
 
 class weatherViewController: UIViewController {
     
+    @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
@@ -38,7 +39,14 @@ class weatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        inputCityFextField.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        inputCityFextField.alpha = 0.5
+        inputCityFextField.layer.borderWidth = 1
+        inputCityFextField.layer.cornerRadius = 15
+        inputCityFextField.text = "  Введите город"
+        
         getWeather(city: "Gomel")
+        weatherImageView.loadGif(name: "Sunny")
     }
     
     func getWeather(city: String) {
