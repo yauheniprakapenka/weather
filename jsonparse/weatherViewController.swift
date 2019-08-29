@@ -14,6 +14,7 @@ class weatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var conditionIcon: UIImageView!
+    @IBOutlet weak var inputCityFextField: UITextField!
     
     struct Weather: Decodable {
         var location: Location?
@@ -37,7 +38,12 @@ class weatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let urlString = "http://api.apixu.com/v1/current.json?key=293cadfcdcb0484faff155128192608&q=Gomel"
+        getWeather(city: "Gomel")
+    }
+    
+    func getWeather(city: String) {
+        
+        let urlString = "http://api.apixu.com/v1/current.json?key=293cadfcdcb0484faff155128192608&q=\(city)"
         guard let url = URL(string: urlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -62,8 +68,12 @@ class weatherViewController: UIViewController {
                 print(error)
             }
         }.resume()
-        
-        
+    }
+    
+    
+    @IBAction func findCityButton(_ sender: UIButton) {
+        let inputCity = inputCityFextField.text!
+        getWeather(city: inputCity)
     }
     
 }
