@@ -44,7 +44,7 @@ class weatherViewController: UIViewController, UITextFieldDelegate {
         inputCityFextField.alpha = 0.5
         inputCityFextField.layer.borderWidth = 1
         inputCityFextField.layer.cornerRadius = 15
-        inputCityFextField.text = "  Введите город"
+        inputCityFextField.attributedPlaceholder = NSAttributedString(string: "Введите город", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         getWeather(city: "Gomel")
         weatherImageView.loadGif(name: "Sunny")
