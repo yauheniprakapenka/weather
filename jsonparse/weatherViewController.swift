@@ -8,7 +8,7 @@
 
 import UIKit
 
-class weatherViewController: UIViewController {
+class weatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
@@ -27,8 +27,9 @@ class weatherViewController: UIViewController {
     }
     
     struct Current: Decodable {
-        var temp_c: Double
+        var temp_c: Int
         var condition: Condittion?
+        var is_day: Int
     }
     
     struct Condittion: Decodable {
@@ -47,10 +48,11 @@ class weatherViewController: UIViewController {
         
         getWeather(city: "Gomel")
         weatherImageView.loadGif(name: "Sunny")
+        
+        self.inputCityFextField.delegate = self
     }
     
     func getWeather(city: String) {
-        
         let urlString = "http://api.apixu.com/v1/current.json?key=293cadfcdcb0484faff155128192608&q=\(city)"
         guard let url = URL(string: urlString) else { return }
         
@@ -63,7 +65,7 @@ class weatherViewController: UIViewController {
                 print(weather)
                 DispatchQueue.main.async {
                     self.countryLabel.text = "\(weather.location?.name ?? "")"
-                    self.temperatureLabel.text = "\(weather.current?.temp_c ?? 0.0) °C"
+                    self.temperatureLabel.text = "\(weather.current?.temp_c ?? 0) °C"
                     self.conditionTextLabel.text = "\(weather.current?.condition?.text ?? "")"
                     
                     let iconString = "\(weather.current?.condition?.icon ?? "")"
@@ -78,10 +80,12 @@ class weatherViewController: UIViewController {
         }.resume()
     }
     
-    
-    @IBAction func findCityButton(_ sender: UIButton) {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let inputCity = inputCityFextField.text!
         getWeather(city: inputCity)
+        
+        self.view.endEditing(true)
+        return false
     }
     
 }
