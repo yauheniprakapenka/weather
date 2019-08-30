@@ -19,7 +19,8 @@
 		3ECC16A8231859B2001FECF6 /* Dawn.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A5231859B2001FECF6 /* Dawn.gif */; };
 		3ECC16AB231859C0001FECF6 /* Sunset.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A9231859C0001FECF6 /* Sunset.gif */; };
 		3ECC16AC231859C0001FECF6 /* Snow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16AA231859C0001FECF6 /* Snow.gif */; };
-		3EE122A32319690900E1AE3F /* Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122A22319690900E1AE3F /* Keyboard.swift */; };
+		3EE122A523196E9500E1AE3F /* CurrentWeatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122A423196E9500E1AE3F /* CurrentWeatherJSON.swift */; };
+		3EE122A723198F0C00E1AE3F /* ConditionWeatherJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122A623198F0C00E1AE3F /* ConditionWeatherJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +38,8 @@
 		3ECC16A5231859B2001FECF6 /* Dawn.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Dawn.gif; sourceTree = "<group>"; };
 		3ECC16A9231859C0001FECF6 /* Sunset.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunset.gif; sourceTree = "<group>"; };
 		3ECC16AA231859C0001FECF6 /* Snow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Snow.gif; sourceTree = "<group>"; };
-		3EE122A22319690900E1AE3F /* Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keyboard.swift; sourceTree = "<group>"; };
+		3EE122A423196E9500E1AE3F /* CurrentWeatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherJSON.swift; sourceTree = "<group>"; };
+		3EE122A623198F0C00E1AE3F /* ConditionWeatherJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionWeatherJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 				3E2ADEE323158565009212EC /* Assets.xcassets */,
 				3E2ADEE523158565009212EC /* LaunchScreen.storyboard */,
 				3E2ADEE823158565009212EC /* Info.plist */,
-				3EE122A22319690900E1AE3F /* Keyboard.swift */,
+				3EE122A423196E9500E1AE3F /* CurrentWeatherJSON.swift */,
+				3EE122A623198F0C00E1AE3F /* ConditionWeatherJSON.swift */,
 			);
 			path = jsonparse;
 			sourceTree = "<group>";
@@ -175,8 +178,9 @@
 			files = (
 				3E2ADEDF23158564009212EC /* weatherViewController.swift in Sources */,
 				3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */,
-				3EE122A32319690900E1AE3F /* Keyboard.swift in Sources */,
+				3EE122A723198F0C00E1AE3F /* ConditionWeatherJSON.swift in Sources */,
 				3ECC169D231848D8001FECF6 /* Gif.swift in Sources */,
+				3EE122A523196E9500E1AE3F /* CurrentWeatherJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
