@@ -36,6 +36,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             }
         })
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        inputCityFextField.becomeFirstResponder()
+    }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let inputCity = inputCityFextField.text!
@@ -56,7 +61,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         // Выбрать GIF
         let gif = self.kindOfWeather.getKindOfWeather(kind: self.weather.condititon)
-        self.weatherImageView.loadGif(name: gif)
+        if gif == "" {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController
+            self.present(secondViewController, animated: false, completion: nil)
+        } else {
+            self.weatherImageView.loadGif(name: gif)
+//            self.weatherImageView.loadGif(name: "Cats")
+            
+        }
+        
     }
 
 }
