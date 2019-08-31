@@ -21,22 +21,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bUe-JQ-p04">
                                 <rect key="frame" x="0.0" y="293" width="320" height="70"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ptI-vP-o1u">
-                                        <rect key="frame" x="158" y="0.0" width="4" height="70"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="4" id="yHI-VA-778"/>
-                                        </constraints>
-                                    </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0M0-sj-9jV">
-                                        <rect key="frame" x="163" y="3" width="64" height="64"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="64" id="4DO-jj-ET9"/>
-                                            <constraint firstAttribute="height" constant="64" id="GbS-8i-E5G"/>
-                                        </constraints>
-                                    </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jic-G7-ypf">
-                                        <rect key="frame" x="0.0" y="20" width="158" height="30"/>
+                                        <rect key="frame" x="138" y="20" width="44" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="cfI-pu-YqH"/>
                                         </constraints>
@@ -47,15 +33,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="jic-G7-ypf" firstAttribute="leading" secondItem="bUe-JQ-p04" secondAttribute="leading" id="8wa-ky-VBd"/>
-                                    <constraint firstAttribute="bottom" secondItem="ptI-vP-o1u" secondAttribute="bottom" id="Eqb-vt-k5q"/>
-                                    <constraint firstItem="0M0-sj-9jV" firstAttribute="leading" secondItem="ptI-vP-o1u" secondAttribute="trailing" constant="1" id="Lbb-wT-CWL"/>
+                                    <constraint firstItem="jic-G7-ypf" firstAttribute="centerX" secondItem="bUe-JQ-p04" secondAttribute="centerX" id="KYB-57-xGa"/>
                                     <constraint firstAttribute="height" constant="70" id="Vhm-0l-TGK"/>
-                                    <constraint firstItem="ptI-vP-o1u" firstAttribute="leading" secondItem="jic-G7-ypf" secondAttribute="trailing" id="e1p-S7-f5J"/>
-                                    <constraint firstItem="0M0-sj-9jV" firstAttribute="centerY" secondItem="bUe-JQ-p04" secondAttribute="centerY" id="hr8-Ct-J7Z"/>
-                                    <constraint firstItem="ptI-vP-o1u" firstAttribute="top" secondItem="bUe-JQ-p04" secondAttribute="top" id="uoV-6I-X7q"/>
                                     <constraint firstItem="jic-G7-ypf" firstAttribute="centerY" secondItem="bUe-JQ-p04" secondAttribute="centerY" id="wgM-4X-Pib"/>
-                                    <constraint firstItem="ptI-vP-o1u" firstAttribute="centerX" secondItem="bUe-JQ-p04" secondAttribute="centerX" id="yK4-99-vPO"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ai1-1w-fWQ">
@@ -127,7 +107,6 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="conditionIcon" destination="0M0-sj-9jV" id="NO4-rr-xcg"/>
                         <outlet property="conditionTextLabel" destination="jic-G7-ypf" id="duS-3f-DlC"/>
                         <outlet property="countryLabel" destination="5e3-3t-f4P" id="9pF-nL-8bK"/>
                         <outlet property="inputCityFextField" destination="cob-fn-EDb" id="9Ua-B3-shW"/>
