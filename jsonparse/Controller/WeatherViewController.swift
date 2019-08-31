@@ -8,7 +8,7 @@
 
 import UIKit
 
-class weatherViewController: UIViewController, UITextFieldDelegate {
+class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     let weather = Weather()
     let kindOfWeather = KindOfWeather()
