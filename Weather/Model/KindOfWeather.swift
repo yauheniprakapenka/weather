@@ -10,8 +10,6 @@ import UIKit
 
 class KindOfWeather {
     
-    let weather = Weather()
-    
     let sunny = ["Sunny", "Clear"]
     let cloudy = ["Freezing fog", "Partly cloudy", "Cloudy", "Overcast", "Mist", "Blizzard", "Fog"]
     let rainy = ["Patchy rain nearby", "Thundery outbreaks in nearby", "Patchy light drizzle", "Light drizzle", "Light rain", "Moderate rain at times", "Moderate rain", "Heavy rain at times", "Heavy rain", "Light freezing rain", "Light rain shower", "Moderate or heavy rain shower", "Torrential rain shower", "Light sleet showers", "Moderate or heavy sleet showers", "Patchy light rain in area with thunder", "Moderate or heavy rain in area with thunder"]

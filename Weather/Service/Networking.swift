@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Weather {
+class Networking {
     
     struct Weather: Decodable {
         var location: Location?

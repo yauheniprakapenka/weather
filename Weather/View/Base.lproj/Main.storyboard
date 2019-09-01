@@ -13,7 +13,7 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="WeatherViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainID" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,47 +127,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ep0-WD-WSU">
-                                <rect key="frame" x="0.0" y="157" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="185.5" width="320" height="140"/>
                                 <color key="backgroundColor" red="0.69982272386550903" green="0.99012142419815063" blue="0.88626557588577271" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="J3a-dF-s1S"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город не найден" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kam-Oz-juK">
-                                <rect key="frame" x="78" y="314" width="164" height="33"/>
+                                <rect key="frame" x="0.0" y="342.5" width="320" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="33" id="qYT-34-7oR"/>
+                                    <constraint firstAttribute="height" constant="60" id="DlQ-dy-RY2"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.1994920721" blue="0.53728103640000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" red="0.30380812013761388" green="0.50118811448464295" blue="0.81623381376266479" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вы точно ввели город правильно?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xaf-Hl-2jo">
-                                <rect key="frame" x="0.0" y="355" width="320" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69C-sc-Zr9">
+                                <rect key="frame" x="46" y="484" width="222" height="44"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="31" id="cuQ-Zh-qUd"/>
+                                    <constraint firstAttribute="height" constant="44" id="9Bw-UT-pPn"/>
+                                    <constraint firstAttribute="width" constant="222" id="bo9-rg-bBg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.22352941179999999" green="0.1994920721" blue="0.53728103640000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="Ввести город еще раз"/>
+                                <connections>
+                                    <action selector="backButtonDidTap:" destination="k99-kc-Yyd" eventType="touchUpInside" id="abA-Mu-9SL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.69982272386550903" green="0.99012142419815063" blue="0.88626557588577271" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="iN4-xe-YCf" firstAttribute="trailing" secondItem="Ep0-WD-WSU" secondAttribute="trailing" id="ELx-2a-3jJ"/>
-                            <constraint firstItem="Xaf-Hl-2jo" firstAttribute="leading" secondItem="iN4-xe-YCf" secondAttribute="leading" id="O7f-Pv-HIa"/>
+                            <constraint firstItem="69C-sc-Zr9" firstAttribute="centerX" secondItem="4FS-Ns-f7b" secondAttribute="centerX" constant="-3" id="KEL-0z-J7y"/>
+                            <constraint firstItem="Kam-Oz-juK" firstAttribute="leading" secondItem="iN4-xe-YCf" secondAttribute="leading" id="OWQ-vM-Jt8"/>
                             <constraint firstItem="Ep0-WD-WSU" firstAttribute="centerX" secondItem="4FS-Ns-f7b" secondAttribute="centerX" id="Z9l-HP-5G3"/>
-                            <constraint firstItem="Ep0-WD-WSU" firstAttribute="centerY" secondItem="4FS-Ns-f7b" secondAttribute="centerY" multiplier="0.8" id="bwM-0G-x0V"/>
+                            <constraint firstItem="Ep0-WD-WSU" firstAttribute="centerY" secondItem="4FS-Ns-f7b" secondAttribute="centerY" multiplier="0.9" id="bwM-0G-x0V"/>
+                            <constraint firstItem="iN4-xe-YCf" firstAttribute="trailing" secondItem="Kam-Oz-juK" secondAttribute="trailing" id="dRU-Oq-P2t"/>
                             <constraint firstItem="Ep0-WD-WSU" firstAttribute="leading" secondItem="iN4-xe-YCf" secondAttribute="leading" id="e1N-Ii-0HK"/>
                             <constraint firstItem="Kam-Oz-juK" firstAttribute="top" secondItem="Ep0-WD-WSU" secondAttribute="bottom" constant="17" id="jhg-ZL-Ftn"/>
                             <constraint firstItem="Kam-Oz-juK" firstAttribute="centerX" secondItem="4FS-Ns-f7b" secondAttribute="centerX" id="s8q-Rj-OID"/>
-                            <constraint firstItem="iN4-xe-YCf" firstAttribute="trailing" secondItem="Xaf-Hl-2jo" secondAttribute="trailing" id="uSO-dQ-gza"/>
-                            <constraint firstItem="Xaf-Hl-2jo" firstAttribute="top" secondItem="Kam-Oz-juK" secondAttribute="bottom" constant="8" id="yeg-pY-vrS"/>
+                            <constraint firstItem="iN4-xe-YCf" firstAttribute="bottom" secondItem="69C-sc-Zr9" secondAttribute="bottom" constant="40" id="tQY-Kl-hMk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="iN4-xe-YCf"/>
                     </view>
                     <connections>
+                        <outlet property="backButton" destination="69C-sc-Zr9" id="1zb-Zp-qUT"/>
                         <outlet property="catImageView" destination="Ep0-WD-WSU" id="pLB-lL-cnw"/>
+                        <outlet property="cityNotFoundLabel" destination="Kam-Oz-juK" id="GuS-qI-UaF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IoR-dm-vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>

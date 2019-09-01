@@ -10,14 +10,15 @@ import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
-    let weather = Weather()
-    let kindOfWeather = KindOfWeather()
-    
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var inputCityFextField: UITextField!
+    
+    let weather = Networking()
+    let kindOfWeather = KindOfWeather()
+    var inputCity = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         inputCityFextField.alpha = 0.5
         inputCityFextField.layer.borderWidth = 1
         inputCityFextField.layer.cornerRadius = 10
-        inputCityFextField.attributedPlaceholder = NSAttributedString(string: "Введите город", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        inputCityFextField.attributedPlaceholder = NSAttributedString(string: "Какой город ищем?", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
         self.inputCityFextField.delegate = self
         
@@ -43,7 +44,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        let inputCity = inputCityFextField.text!
+        inputCity = inputCityFextField.text!
         weather.getWeather(city: inputCity, completion: {
             DispatchQueue.main.async {
                 self.setValue()
@@ -61,16 +62,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         // Выбрать GIF
         let gif = self.kindOfWeather.getKindOfWeather(kind: self.weather.condititon)
+        
         if gif == "" {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController
+            secondViewController.message = "Не получилось найти\nгород \(inputCity)"
             self.present(secondViewController, animated: false, completion: nil)
         } else {
             self.weatherImageView.loadGif(name: gif)
-//            self.weatherImageView.loadGif(name: "Cats")
-            
         }
-        
     }
 
 }
