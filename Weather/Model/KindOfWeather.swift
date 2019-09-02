@@ -19,13 +19,13 @@ class KindOfWeather {
         var gif = ""
         
         if sunny.contains(kind) {
-            gif = "SunnyGIF"
+            gif = "Sunny"
         } else if cloudy.contains(kind) {
-            gif = "CloudyGIF"
+            gif = "Cloudy"
         } else if rainy.contains(kind) {
-            gif = "RainyGIF"
+            gif = "Rainy"
         } else if snow.contains(kind) {
-            gif = "SnowGIF"
+            gif = "Snow"
         } else {
             gif = ""
         }

@@ -34,5 +34,4 @@ class CityNotFoundViewController: UIViewController {
         self.present(weatherViewController, animated: false, completion: nil)
     }
     
-
 }

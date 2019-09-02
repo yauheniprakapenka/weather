@@ -12,15 +12,13 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var bearImageView: UIImageView!
     
-    
-    
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var inputCityTextField: UITextField!
     
-    let weather = Networking()
+    let networking = Networking()
     let kindOfWeather = KindOfWeather()
     var inputCity = ""
 
@@ -35,20 +33,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         self.inputCityTextField.delegate = self
         
-        weather.getWeather(city: "grodno", completion: {
-            DispatchQueue.main.async {
-                self.setValue()
-            }
+        networking.getWeather(city: "grodno", completion: { [weak self] weather in
+                self?.setValue(from: weather)
         })
-        
-//        bearImageView.image = UIImage(named: "shy")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         inputCityTextField.becomeFirstResponder()
     }
-    
     
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
         if inputCityTextField.text?.count == 1 {
@@ -62,38 +55,36 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         } else if inputCityTextField.text?.count == 5 {
             bearImageView.image = UIImage(named: "peek")
         }
-    
     }
-    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         inputCity = inputCityTextField.text!
-        weather.getWeather(city: inputCity, completion: {
-            DispatchQueue.main.async {
-                self.setValue()
-            }
+        networking.getWeather(city: inputCity, completion: { [weak self] weather in
+                self?.setValue(from: weather)
         })
         
         self.view.endEditing(true)
         return false
     }
     
-    func setValue() {
-        self.countryLabel.text = self.weather.country
-        self.temperatureLabel.text = self.weather.temperature
-        self.conditionTextLabel.text = self.weather.condititon
-        
-        // Выбрать GIF
-        let gif = self.kindOfWeather.getKindOfWeather(kind: self.weather.condititon)
-        
-        if gif == "" {
+    func setValue(from weather: Weather?) {
+        if weather?.location == nil || weather?.current == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController
             secondViewController.message = "Не получилось найти\nгород \(inputCity)"
             self.present(secondViewController, animated: false, completion: nil)
-        } else {
-            self.weatherImageView.loadGif(name: gif)
+            
+            return
         }
+        
+        self.countryLabel.text = "\(weather?.location?.name ?? "")"
+        self.temperatureLabel.text = "\(weather?.current?.temp_c ?? 0) °C"
+        self.conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
+        
+        // Выбрать GIF
+        let gif = self.kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
+        
+        self.weatherImageView.loadGif(name: gif)
     }
 
 }

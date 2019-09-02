@@ -10,32 +10,7 @@ import UIKit
 
 class Networking {
     
-    struct Weather: Decodable {
-        var location: Location?
-        var current: Current?
-    }
-    
-    struct Location: Decodable {
-        var name: String
-    }
-    
-    struct Current: Decodable {
-        var temp_c: Int
-        var condition: Condition?
-        var is_day: Int
-    }
-    
-    struct Condition: Decodable {
-        var text: String
-        var icon: String
-        var code: Int
-    }
-    
-    public var country = ""
-    public var temperature = ""
-    public var condititon = ""
-    
-    func getWeather(city: String, completion: @escaping () -> Void) {
+    func getWeather(city: String, completion: @escaping (_ weather: Weather?) -> Void) {
         let urlString = "http://api.apixu.com/v1/current.json?key=293cadfcdcb0484faff155128192608&q=\(city)"
         guard let url = URL(string: urlString) else { return }
         
@@ -46,10 +21,9 @@ class Networking {
             do {
                 let weather = try JSONDecoder().decode(Weather.self, from: data)
                 print(weather)
-                completion()
-                    self.country = "\(weather.location?.name ?? "")"
-                    self.temperature = "\(weather.current?.temp_c ?? 0) °C"
-                    self.condititon = "\(weather.current?.condition?.text ?? "")"
+                DispatchQueue.main.async {
+                    completion(weather)
+                }
             } catch let error { print(error) }
         }.resume()
     }
