@@ -10,11 +10,15 @@ import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var bearImageView: UIImageView!
+    
+    
+    
     @IBOutlet weak var weatherImageView: UIImageView!
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
-    @IBOutlet weak var inputCityFextField: UITextField!
+    @IBOutlet weak var inputCityTextField: UITextField!
     
     let weather = Networking()
     let kindOfWeather = KindOfWeather()
@@ -23,28 +27,47 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        inputCityFextField.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        inputCityFextField.alpha = 0.5
-        inputCityFextField.layer.borderWidth = 1
-        inputCityFextField.layer.cornerRadius = 10
-        inputCityFextField.attributedPlaceholder = NSAttributedString(string: "Какой город ищем?", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+        inputCityTextField.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        inputCityTextField.alpha = 0.5
+        inputCityTextField.layer.borderWidth = 1
+        inputCityTextField.layer.cornerRadius = 10
+        inputCityTextField.attributedPlaceholder = NSAttributedString(string: "Какой город ищем?", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
-        self.inputCityFextField.delegate = self
+        self.inputCityTextField.delegate = self
         
         weather.getWeather(city: "grodno", completion: {
             DispatchQueue.main.async {
                 self.setValue()
             }
         })
+        
+//        bearImageView.image = UIImage(named: "shy")
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        inputCityFextField.becomeFirstResponder()
+        inputCityTextField.becomeFirstResponder()
     }
-
+    
+    
+    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
+        if inputCityTextField.text?.count == 1 {
+            bearImageView.image = UIImage(named: "active")
+        } else if inputCityTextField.text?.count == 2 {
+            bearImageView.image = UIImage(named: "shy")
+        } else if inputCityTextField.text?.count == 3 {
+            bearImageView.image = UIImage(named: "ecstatic")
+        } else if inputCityTextField.text?.count == 4 {
+            bearImageView.image = UIImage(named: "neutral")
+        } else if inputCityTextField.text?.count == 5 {
+            bearImageView.image = UIImage(named: "peek")
+        }
+    
+    }
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        inputCity = inputCityFextField.text!
+        inputCity = inputCityTextField.text!
         weather.getWeather(city: inputCity, completion: {
             DispatchQueue.main.async {
                 self.setValue()
