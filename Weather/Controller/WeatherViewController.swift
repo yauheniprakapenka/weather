@@ -36,6 +36,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         networking.getWeather(city: "grodno", completion: { [weak self] weather in
                 self?.setValue(from: weather)
         })
+        
+        inputCityTextField.tintColor = .white
     }
     
     override func viewWillAppear(_ animated: Bool) {

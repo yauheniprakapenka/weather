@@ -19,7 +19,6 @@ struct Weather: Decodable {
     struct Current: Decodable {
         var temp_c: Int
         var condition: Condition?
-        var is_day: Int
         
         struct Condition: Decodable {
             var text: String
