@@ -16,9 +16,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var inputCityTextField: UITextField!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var womanWithUmbrella: UIImageView!
     
     let networking = Networking()
     let kindOfWeather = KindOfWeather()
+    let motionEffect = MotionEffect()
     
     var city = ""
     var textForShare = ""
@@ -45,6 +47,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         inputCityTextField.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
         
         self.hideKeyboard()
+        
+        motionEffect.applyParallax(toView: womanWithUmbrella, magnitude: 60)
+        
+//        applyMotionEffect(toView: womanWithUmbrella, magnitude: 40)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
