@@ -43,6 +43,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         })
         
         inputCityTextField.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+        
+        self.hideKeyboard()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
