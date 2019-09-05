@@ -15,11 +15,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var inputCityTextField: UITextField!
-
+    @IBOutlet weak var shareButton: UIButton!
+    
     let networking = Networking()
     let kindOfWeather = KindOfWeather()
+    
     var city = ""
     var textForShare = ""
+    
     public var arrayForShare: [String] = []
 
     override func viewDidLoad() {
@@ -31,6 +34,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         inputCityTextField.layer.cornerRadius = 10
         inputCityTextField.attributedPlaceholder = NSAttributedString(string: "Какой город ищем?", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
         
+        shareButton.layer.cornerRadius = 15
+        
         self.inputCityTextField.delegate = self
         
         networking.getWeather(city: "grodno", completion: { [weak self] weather in
@@ -38,17 +43,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         })
         
         inputCityTextField.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        inputCityTextField.becomeFirstResponder()
-    }
-    
-    // Пока не найдено применение
-    @IBAction func textFieldEditingChanged(_ sender: UITextField) {
-        if inputCityTextField.text?.count == 1 {
-        }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -73,16 +67,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
         
         cityLabel.text = "\(weather?.location?.name ?? "")"
-        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0) °"
+        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
         conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
         
-        textForShare = "Сейчас в городе \(cityLabel.text ?? "не найден") \(temperatureLabel.text ?? "температура не найдена")"
+        textForShare = "Сейчас в \(cityLabel.text ?? "не найден") \(temperatureLabel.text ?? "температура не найдена")"
         arrayForShare.append(textForShare)
         
-        // Выбрать GIF
         let gif = kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
         weatherImageView.image = UIImage(named: gif)
-//        self.weatherImageView.loadGif(name: gif) // Переход на обычные картинки
+//        self.weatherImageView.loadGif(name: gif) // Отключено в связи с переходом на обычные картинки
     }
     
     @IBAction func shareButtonTapped(_ sender: UIButton) {
