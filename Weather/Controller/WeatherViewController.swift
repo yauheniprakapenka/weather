@@ -10,24 +10,25 @@ import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var bearImageView: UIImageView!
-    
+    @IBOutlet weak var dogImageView: UIImageView!
     @IBOutlet weak var weatherImageView: UIImageView!
-    @IBOutlet weak var countryLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var inputCityTextField: UITextField!
-    
+
     let networking = Networking()
     let kindOfWeather = KindOfWeather()
-    var inputCity = ""
+    var city = ""
+    var textForShare = ""
+    public var arrayForShare: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         inputCityTextField.layer.borderColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        inputCityTextField.alpha = 0.5
         inputCityTextField.layer.borderWidth = 1
+        inputCityTextField.alpha = 0.5
         inputCityTextField.layer.cornerRadius = 10
         inputCityTextField.attributedPlaceholder = NSAttributedString(string: "Какой город ищем?", attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
         
@@ -45,23 +46,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         inputCityTextField.becomeFirstResponder()
     }
     
+    // Пока не найдено применение
     @IBAction func textFieldEditingChanged(_ sender: UITextField) {
         if inputCityTextField.text?.count == 1 {
-            bearImageView.image = UIImage(named: "active")
-        } else if inputCityTextField.text?.count == 2 {
-            bearImageView.image = UIImage(named: "shy")
-        } else if inputCityTextField.text?.count == 3 {
-            bearImageView.image = UIImage(named: "ecstatic")
-        } else if inputCityTextField.text?.count == 4 {
-            bearImageView.image = UIImage(named: "neutral")
-        } else if inputCityTextField.text?.count == 5 {
-            bearImageView.image = UIImage(named: "peek")
         }
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        inputCity = inputCityTextField.text!
-        networking.getWeather(city: inputCity, completion: { [weak self] weather in
+        arrayForShare.removeAll()
+        city = inputCityTextField.text!
+        networking.getWeather(city: city, completion: { [weak self] weather in
                 self?.setValue(from: weather)
         })
         
@@ -73,20 +67,27 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         if weather?.location == nil || weather?.current == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController
-            secondViewController.message = "Не получилось найти\nгород \(inputCity)"
-            self.present(secondViewController, animated: false, completion: nil)
+            secondViewController.message = "Не получилось найти\nгород \(city)"
+            present(secondViewController, animated: false, completion: nil)
             
             return
         }
         
-        self.countryLabel.text = "\(weather?.location?.name ?? "")"
-        self.temperatureLabel.text = "\(weather?.current?.temp_c ?? 0) °C"
-        self.conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
+        cityLabel.text = "\(weather?.location?.name ?? "")"
+        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0) °C"
+        conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
+        
+        textForShare = "Сейчас в городе \(cityLabel.text ?? "не найден") \(temperatureLabel.text ?? "температура не найдена")"
+        arrayForShare.append(textForShare)
         
         // Выбрать GIF
-        let gif = self.kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
-        
+        let gif = kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
         self.weatherImageView.loadGif(name: gif)
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        let shareController = UIActivityViewController(activityItems: arrayForShare, applicationActivities: nil)
+        present(shareController, animated: true, completion: nil)
     }
 
 }

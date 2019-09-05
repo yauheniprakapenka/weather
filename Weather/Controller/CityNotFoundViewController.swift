@@ -29,9 +29,7 @@ class CityNotFoundViewController: UIViewController {
     }
     
     @IBAction func backButtonDidTap(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let weatherViewController = storyboard.instantiateViewController(withIdentifier: "MainID") as! WeatherViewController
-        self.present(weatherViewController, animated: false, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
 }
