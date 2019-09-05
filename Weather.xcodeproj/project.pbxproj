@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E091716232194CB00C7240C /* ParallaxEffect.swift */; };
 		3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2ADEDC23158564009212EC /* AppDelegate.swift */; };
 		3E2ADEDF23158564009212EC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2ADEDE23158564009212EC /* WeatherViewController.swift */; };
 		3E2ADEE223158564009212EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE023158564009212EC /* Main.storyboard */; };
 		3E2ADEE423158565009212EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE323158565009212EC /* Assets.xcassets */; };
 		3E2ADEE723158565009212EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE523158565009212EC /* LaunchScreen.storyboard */; };
+		3E9D800723218F2F007E6AD3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */; };
 		3ECC169D231848D8001FECF6 /* UIImageView+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC169C231848D8001FECF6 /* UIImageView+Gif.swift */; };
 		3ECC16A22318529E001FECF6 /* Sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A12318529E001FECF6 /* Sunny.gif */; };
 		3ECC16A6231859B2001FECF6 /* Cloudy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A3231859B2001FECF6 /* Cloudy.gif */; };
@@ -25,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3E091716232194CB00C7240C /* ParallaxEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxEffect.swift; sourceTree = "<group>"; };
 		3E2ADED923158564009212EC /* jsonparse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jsonparse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2ADEDC23158564009212EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2ADEDE23158564009212EC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -32,6 +35,7 @@
 		3E2ADEE323158565009212EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E2ADEE623158565009212EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2ADEE823158565009212EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		3ECC169C231848D8001FECF6 /* UIImageView+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Gif.swift"; sourceTree = "<group>"; };
 		3ECC16A12318529E001FECF6 /* Sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunny.gif; sourceTree = "<group>"; };
 		3ECC16A3231859B2001FECF6 /* Cloudy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cloudy.gif; sourceTree = "<group>"; };
@@ -118,6 +122,7 @@
 			children = (
 				3EE122A82319AF2400E1AE3F /* KindOfWeather.swift */,
 				3EE122DA231D6F4800E1AE3F /* Weather.swift */,
+				3E091716232194CB00C7240C /* ParallaxEffect.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				3ECC169C231848D8001FECF6 /* UIImageView+Gif.swift */,
+				3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -234,8 +240,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E9D800723218F2F007E6AD3 /* HideKeyboard.swift in Sources */,
 				3E2ADEDF23158564009212EC /* WeatherViewController.swift in Sources */,
 				3EE122A92319AF2400E1AE3F /* KindOfWeather.swift in Sources */,
+				3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */,
 				3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */,
 				3ECC169D231848D8001FECF6 /* UIImageView+Gif.swift in Sources */,
 				3EE122B7231AFBF000E1AE3F /* CityNotFoundViewController.swift in Sources */,
