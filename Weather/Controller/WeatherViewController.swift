@@ -23,11 +23,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     let motionEffect = MotionEffect()
     
     var city = ""
-    var textForShare = ""
-    
-    var arrayForShareWithText: [String] = []
-//    var arrayForShareWithImage: [UIImage] = [#imageLiteral(resourceName: "WomanWithUmbrella")]
-    
+    var arrayForShareWithImage: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +39,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         self.inputCityTextField.delegate = self
         
         networking.getWeather(city: "grodno", completion: { [weak self] weather in
-                self?.setValue(from: weather)
+            self?.setValue(from: weather)
         })
         
         inputCityTextField.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
@@ -51,18 +47,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboard()
         
         motionEffect.applyParallax(toView: womanWithUmbrella, magnitude: 60)
-        
-//        applyMotionEffect(toView: womanWithUmbrella, magnitude: 40)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        arrayForShareWithText.removeAll()
         city = inputCityTextField.text!
         networking.getWeather(city: city, completion: { [weak self] weather in
-                self?.setValue(from: weather)
+            self?.setValue(from: weather)
         })
-        
         self.view.endEditing(true)
+        
         return false
     }
     
@@ -79,18 +72,27 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         cityLabel.text = "\(weather?.location?.name ?? "")"
         temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
         conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
-        
-        textForShare = "Сейчас в \(cityLabel.text ?? "не найден") \(temperatureLabel.text ?? "температура не найдена")"
-        arrayForShareWithText.append(textForShare)
-        
+
         let gif = kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
         weatherImageView.image = UIImage(named: gif)
-//        self.weatherImageView.loadGif(name: gif) // Отключено в связи с переходом на обычные картинки
     }
     
     @IBAction func shareButtonTapped(_ sender: UIButton) {
-        let shareController = UIActivityViewController(activityItems: arrayForShareWithText, applicationActivities: nil)
+        let image = takeScreenshot()
+        arrayForShareWithImage.removeAll()
+        arrayForShareWithImage.append(image)
+        
+        let shareController = UIActivityViewController(activityItems: arrayForShareWithImage, applicationActivities: nil)
         present(shareController, animated: true, completion: nil)
+    }
+    
+    func takeScreenshot() -> UIImage {
+        let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
+        let image = renderer.image { ctx in
+            view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+        }
+        
+        return image
     }
 
 }
