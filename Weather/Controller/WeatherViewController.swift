@@ -25,7 +25,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     var city = ""
     var textForShare = ""
     
-    public var arrayForShare: [String] = []
+    var arrayForShareWithText: [String] = []
+//    var arrayForShareWithImage: [UIImage] = [#imageLiteral(resourceName: "WomanWithUmbrella")]
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        arrayForShare.removeAll()
+        arrayForShareWithText.removeAll()
         city = inputCityTextField.text!
         networking.getWeather(city: city, completion: { [weak self] weather in
                 self?.setValue(from: weather)
@@ -79,7 +81,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
         
         textForShare = "Сейчас в \(cityLabel.text ?? "не найден") \(temperatureLabel.text ?? "температура не найдена")"
-        arrayForShare.append(textForShare)
+        arrayForShareWithText.append(textForShare)
         
         let gif = kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
         weatherImageView.image = UIImage(named: gif)
@@ -87,7 +89,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func shareButtonTapped(_ sender: UIButton) {
-        let shareController = UIActivityViewController(activityItems: arrayForShare, applicationActivities: nil)
+        let shareController = UIActivityViewController(activityItems: arrayForShareWithText, applicationActivities: nil)
         present(shareController, animated: true, completion: nil)
     }
 
