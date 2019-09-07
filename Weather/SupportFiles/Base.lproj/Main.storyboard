@@ -66,7 +66,7 @@
                                     <constraint firstAttribute="height" constant="100" id="zoE-0k-Kjh"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cob-fn-EDb">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cob-fn-EDb" customClass="CityTextField" customModule="jsonparse" customModuleProvider="target">
                                 <rect key="frame" x="50" y="264" width="220" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -139,8 +139,8 @@
                     </view>
                     <connections>
                         <outlet property="cityLabel" destination="5e3-3t-f4P" id="9pF-nL-8bK"/>
+                        <outlet property="cityTextField" destination="cob-fn-EDb" id="9Ua-B3-shW"/>
                         <outlet property="conditionTextLabel" destination="jic-G7-ypf" id="duS-3f-DlC"/>
-                        <outlet property="inputCityTextField" destination="cob-fn-EDb" id="9Ua-B3-shW"/>
                         <outlet property="shareButton" destination="axC-c4-c4e" id="nc0-Km-5dv"/>
                         <outlet property="temperatureLabel" destination="6A4-uz-pFA" id="Z7i-0E-Zlh"/>
                         <outlet property="weatherImageView" destination="NYs-BP-ciB" id="DHf-MZ-1nd"/>

@@ -14,7 +14,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
-    @IBOutlet weak var inputCityTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var womanWithUmbrella: UIImageView!
     
@@ -28,29 +28,20 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        inputCityTextField.layer.borderColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
-        inputCityTextField.layer.borderWidth = 1
-        inputCityTextField.alpha = 0.5
-        inputCityTextField.layer.cornerRadius = 10
-        inputCityTextField.attributedPlaceholder = NSAttributedString(string: "Какой город ищем?", attributes: [NSAttributedString.Key.foregroundColor: UIColor.black])
-        
-        shareButton.layer.cornerRadius = 15
-        
-        self.inputCityTextField.delegate = self
-        
         networking.getWeather(city: "grodno", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
-        inputCityTextField.tintColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+        shareButton.layer.cornerRadius = 15
         
+        self.cityTextField.delegate = self
         self.hideKeyboard()
         
         motionEffect.applyParallax(toView: womanWithUmbrella, magnitude: 60)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        city = inputCityTextField.text!
+        city = cityTextField.text!
         networking.getWeather(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
