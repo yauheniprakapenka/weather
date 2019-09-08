@@ -18,7 +18,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var womanWithUmbrella: UIImageView!
     
-    let networking = Networking()
+    let networkService = NetworkService() // Удалить
+    let networkDataFetcher = NetworkDataFetcher()
     let kindOfWeather = KindOfWeather()
     let motionEffect = MotionEffect()
     
@@ -28,7 +29,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networking.getWeather(city: "grodno", completion: { [weak self] weather in
+        networkService.getWeather(city: "grodno", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -42,10 +43,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         city = cityTextField.text!
-        networking.getWeather(city: city, completion: { [weak self] weather in
+        networkService.getWeather(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         self.view.endEditing(true)
+        
+        networkDataFetcher.fetchImages(searchTerm: "cloud") { (searchResults) in
+            searchResults?.results.map({ (photo) in
+                print(photo.urls["small"])
+            })
+            
+        }
         
         return false
     }
