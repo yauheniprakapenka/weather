@@ -88,22 +88,37 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         imageIsShow = !imageIsShow
         
         if imageIsShow {
-            womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - screenSize.fetchWidth())
-            womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + screenSize.fetchWidth())
-            unsplashImageView.alpha = 1
-            showPhotoButton.setTitle("Скрыть фото", for: .normal)
+            UIImageView.animate(withDuration: 1.5) {
+                self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - self.screenSize.fetchWidth())
+                self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + self.screenSize.fetchWidth())
+                self.view.layoutIfNeeded()
+            }
+            
             fetchUnsplashPhoto()
+            
+            UIImageView.animate(withDuration: 0.5, animations: {
+                self.unsplashImageView.alpha = 1
+            }) { _ in
+                self.showPhotoButton.setTitle("Скрыть фото", for: .normal)
+            }
         } else {
-            womanWithUmbrellaTrailingConstraint.constant = -55
-            womanWithUmbrellaLeadingConstraint.constant = 163
-            showPhotoButton.setTitle("Показать фото", for: .normal)
-            unsplashImageView.alpha = 0
+            UIImageView.animate(withDuration: 1.5) {
+                self.womanWithUmbrellaTrailingConstraint.constant = -55
+                self.womanWithUmbrellaLeadingConstraint.constant = 163
+                self.view.layoutIfNeeded()
+            }
+            
+            UIImageView.animate(withDuration: 0.5, animations: {
+                self.unsplashImageView.alpha = 0
+            }) { _ in
+                self.showPhotoButton.setTitle("Показать фото", for: .normal)
+            }
         }
     }
     
     func takeScreenshot() -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
-        let image = renderer.image { ctx in
+        let image = renderer.image { _ in
             view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
         }
         

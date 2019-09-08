@@ -74,7 +74,7 @@
                                     <constraint firstAttribute="height" constant="100" id="zoE-0k-Kjh"/>
                                 </constraints>
                             </view>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ural" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cob-fn-EDb" customClass="CityTextField" customModule="jsonparse" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cob-fn-EDb" customClass="CityTextField" customModule="jsonparse" customModuleProvider="target">
                                 <rect key="frame" x="77.5" y="313.5" width="220" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
