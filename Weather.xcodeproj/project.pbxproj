@@ -53,7 +53,7 @@
 		3EE122A82319AF2400E1AE3F /* KindOfWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindOfWeather.swift; sourceTree = "<group>"; };
 		3EE122B4231AF49200E1AE3F /* Cats.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cats.gif; sourceTree = "<group>"; };
 		3EE122B6231AFBF000E1AE3F /* CityNotFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNotFoundViewController.swift; sourceTree = "<group>"; };
-		3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchApixuResults.swift; path = ../../Model/SearchApixuResults.swift; sourceTree = "<group>"; };
+		3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchApixuResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 		3E77794E232535FD005DE023 /* apixu */ = {
 			isa = PBXGroup;
 			children = (
-				3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */,
+				3E777952232545FA005DE023 /* Model */,
 				3E77794F23253608005DE023 /* NetworkServiceAPIXU.swift */,
 			);
 			path = apixu;
@@ -118,10 +118,18 @@
 			isa = PBXGroup;
 			children = (
 				3E7779492325004E005DE023 /* Model */,
-				3EE122A423196E9500E1AE3F /* NetworkServiceUnsplash.swift */,
 				3E7779472324FFC5005DE023 /* NetworkDataFetcher.swift */,
+				3EE122A423196E9500E1AE3F /* NetworkServiceUnsplash.swift */,
 			);
 			path = unsplash;
+			sourceTree = "<group>";
+		};
+		3E777952232545FA005DE023 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3ECC169E23184E92001FECF6 /* Gif */ = {

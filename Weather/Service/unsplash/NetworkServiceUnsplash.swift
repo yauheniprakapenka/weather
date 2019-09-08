@@ -25,7 +25,7 @@ class NetworkServiceUnsplash {
         var parameters = [String: String]()
         parameters["query"] = searchTerm
         parameters["page"] = String(1)
-        parameters["per_page"] = String(5)
+        parameters["per_page"] = String(1)
         return parameters
     }
     
