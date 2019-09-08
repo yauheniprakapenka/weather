@@ -27,8 +27,12 @@
 
 <b>Скриншоты:</b>
 
+<a href="https://ibb.co/PMN8bjW"><img src="https://i.ibb.co/ScPp1ym/Simulator-Screen-Shot-i-Phone-X-2019-09-08-at-23-35-18.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-08-at-23-35-18" width="200"></a>
 <a href="https://ibb.co/84V8321"><img src="https://i.ibb.co/k6Fcn0N/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-30.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-30" width="200"></a>
 <a href="https://ibb.co/cQYt90c"><img src="https://i.ibb.co/dDm6vF0/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58" width="200"></a>
 
 <b>Видео:</b>
-1. Демонстрация [здесь](https://drive.google.com/open?id=1v7uZwT4AByjilj4YI_1A7OrVJWK55JPO)
+1. Демонстрация #1 [здесь](https://drive.google.com/open?id=1O5ewI1XtnKCTTpFw-nKByih-_pjWU4Ei)
+2. Демонстрация #2 [здесь](https://drive.google.com/open?id=1v7uZwT4AByjilj4YI_1A7OrVJWK55JPO)
+
+
