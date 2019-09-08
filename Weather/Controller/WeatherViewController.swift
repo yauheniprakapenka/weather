@@ -10,33 +10,51 @@ import UIKit
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
-    @IBOutlet weak var weatherImageView: UIImageView!
-    @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var conditionTextLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var cityTextField: UITextField!
-    @IBOutlet weak var shareButton: UIButton!
-    @IBOutlet weak var womanWithUmbrella: UIImageView!
+    @IBOutlet weak var temperatureLabel: UILabel!
+    
     @IBOutlet weak var unsplashImageView: UIImageView!
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var womanWithUmbrella: UIImageView!
+    
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var showPhotoButton: UIButton!
+    
+    @IBOutlet weak var womanWithUmbrellaTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var womanWithUmbrellaLeadingConstraint: NSLayoutConstraint!
     
     let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
     let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
 
-    let kindOfWeather = KindOfWeather()
+    let kindOfWeather = TypeOfWeather()
     let motionEffect = MotionEffect()
     
-    var city = ""
+    var city = "ural"
     var imageFromUnsplashURL = ""
     var arrayForShareWithImage: [UIImage] = []
+    var imageIsShow = false
+    
+    var newScreenWidth = 0.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Get main screen bounds
+        let screenSize: CGRect = UIScreen.main.bounds
+        
+        let screenWidth = screenSize.width
+        newScreenWidth = Double((28 * screenWidth) / 100)
         
         networkDataFetcherAPIXU.fetchWeather(city: "grodno", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
         shareButton.layer.cornerRadius = 15
+        showPhotoButton.layer.cornerRadius = 15
+        
+        unsplashImageView.alpha = 0
         
         self.cityTextField.delegate = self
         self.hideKeyboard()
@@ -58,7 +76,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
         conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
 
-        let gif = kindOfWeather.getKindOfWeather(kind: weather?.current?.condition?.text ?? "")
+        let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
         weatherImageView.image = UIImage(named: gif)
     }
     
@@ -69,6 +87,23 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         let shareController = UIActivityViewController(activityItems: arrayForShareWithImage, applicationActivities: nil)
         present(shareController, animated: true, completion: nil)
+    }
+    
+    @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
+        imageIsShow = !imageIsShow
+        
+        if imageIsShow {
+            womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - newScreenWidth)
+            womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + newScreenWidth)
+            unsplashImageView.alpha = 1
+            showPhotoButton.setTitle("Скрыть фото", for: .normal)
+            fetchUnsplashPhoto()
+        } else {
+            womanWithUmbrellaTrailingConstraint.constant = -55
+            womanWithUmbrellaLeadingConstraint.constant = 163
+            showPhotoButton.setTitle("Показать фото", for: .normal)
+            unsplashImageView.alpha = 0
+        }
     }
     
     func takeScreenshot() -> UIImage {
@@ -83,11 +118,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         city = cityTextField.text!
         
+        fetchUnsplashPhoto()
+        
         networkDataFetcherAPIXU.fetchWeather(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         self.view.endEditing(true)
         
+        return false
+    }
+    
+    func fetchUnsplashPhoto() {
         networkDataFetcherUnsplash.fetchImages(searchTerm: city) { (searchResults) in
             searchResults?.results.map({ (photo) in
                 print(photo.urls["small"]!)
@@ -100,10 +141,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                     self.unsplashImageView.image = image
                 }
             })
-            
         }
-        
-        return false
     }
 
 }
