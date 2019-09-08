@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Weather: Decodable {
+struct SearchApixuResults: Decodable {
     var location: Location?
     var current: Current?
     
@@ -26,4 +26,5 @@ struct Weather: Decodable {
             var code: Int
         }
     }
+    
 }
