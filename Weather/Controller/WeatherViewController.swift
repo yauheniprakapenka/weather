@@ -30,22 +30,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
 
     let kindOfWeather = TypeOfWeather()
     let motionEffect = MotionEffect()
+    let screenSize = ScreenSize()
     
     var city = "ural"
     var imageFromUnsplashURL = ""
     var arrayForShareWithImage: [UIImage] = []
     var imageIsShow = false
     
-    var newScreenWidth = 0.0
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Get main screen bounds
-        let screenSize: CGRect = UIScreen.main.bounds
-        
-        let screenWidth = screenSize.width
-        newScreenWidth = Double((28 * screenWidth) / 100)
         
         networkDataFetcherAPIXU.fetchWeather(city: "grodno", completion: { [weak self] weather in
             self?.setValue(from: weather)
@@ -93,8 +88,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         imageIsShow = !imageIsShow
         
         if imageIsShow {
-            womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - newScreenWidth)
-            womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + newScreenWidth)
+            womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - screenSize.fetchWidth())
+            womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + screenSize.fetchWidth())
             unsplashImageView.alpha = 1
             showPhotoButton.setTitle("Скрыть фото", for: .normal)
             fetchUnsplashPhoto()
