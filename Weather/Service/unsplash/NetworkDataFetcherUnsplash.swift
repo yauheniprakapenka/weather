@@ -8,7 +8,7 @@
 
 import Foundation
 
-class NetworkDataFetcher {
+class NetworkDataFetcherUnsplash {
     
     var networkService = NetworkServiceUnsplash()
     

@@ -17,21 +17,22 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var womanWithUmbrella: UIImageView!
+    @IBOutlet weak var unsplashImageView: UIImageView!
     
-    let networkServiceAPIXU = NetworkServiceAPIXU() // Удалить
-    
-    
-    let networkDataFetcher = NetworkDataFetcher()
+    let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
+    let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
+
     let kindOfWeather = KindOfWeather()
     let motionEffect = MotionEffect()
     
     var city = ""
+    var imageFromUnsplashURL = ""
     var arrayForShareWithImage: [UIImage] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkServiceAPIXU.getWeather(city: "grodno", completion: { [weak self] weather in
+        networkDataFetcherAPIXU.fetchWeather(city: "grodno", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -41,23 +42,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         self.hideKeyboard()
         
         motionEffect.applyParallax(toView: womanWithUmbrella, magnitude: 60)
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        city = cityTextField.text!
-        networkServiceAPIXU.getWeather(city: city, completion: { [weak self] weather in
-            self?.setValue(from: weather)
-        })
-        self.view.endEditing(true)
-        
-        networkDataFetcher.fetchImages(searchTerm: "cloud") { (searchResults) in
-            searchResults?.results.map({ (photo) in
-                print(photo.urls["small"])
-            })
-            
-        }
-        
-        return false
     }
     
     func setValue(from weather: SearchApixuResults?) {
@@ -94,6 +78,32 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
         
         return image
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        city = cityTextField.text!
+        
+        networkDataFetcherAPIXU.fetchWeather(city: city, completion: { [weak self] weather in
+            self?.setValue(from: weather)
+        })
+        self.view.endEditing(true)
+        
+        networkDataFetcherUnsplash.fetchImages(searchTerm: city) { (searchResults) in
+            searchResults?.results.map({ (photo) in
+                print(photo.urls["small"]!)
+                
+                let url = URL(string: "\(photo.urls["small"]!)")
+                let data = try? Data(contentsOf: url!)
+                
+                if let imageData = data {
+                    let image = UIImage(data: imageData)
+                    self.unsplashImageView.image = image
+                }
+            })
+            
+        }
+        
+        return false
     }
 
 }

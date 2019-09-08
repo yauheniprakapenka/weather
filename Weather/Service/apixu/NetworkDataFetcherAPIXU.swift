@@ -8,9 +8,9 @@
 
 import Foundation
 
-class NetworkServiceAPIXU {
+class NetworkDataFetcherAPIXU {
     
-        func getWeather(city: String, completion: @escaping (_ weather: SearchApixuResults?) -> Void) {
+        func fetchWeather(city: String, completion: @escaping (_ weather: SearchApixuResults?) -> Void) {
             let urlString = "http://api.apixu.com/v1/current.json?key=293cadfcdcb0484faff155128192608&q=\(city)"
             guard let url = URL(string: urlString) else { return }
     

@@ -111,6 +111,10 @@
                                     <action selector="shareButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eB1-Q1-crV"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uQC-pV-teK">
+                                <rect key="frame" x="7" y="178" width="119" height="78"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.9372674822807312" green="0.93723231554031372" blue="0.9372560977935791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -143,13 +147,14 @@
                         <outlet property="conditionTextLabel" destination="jic-G7-ypf" id="duS-3f-DlC"/>
                         <outlet property="shareButton" destination="axC-c4-c4e" id="nc0-Km-5dv"/>
                         <outlet property="temperatureLabel" destination="6A4-uz-pFA" id="Z7i-0E-Zlh"/>
+                        <outlet property="unsplashImageView" destination="uQC-pV-teK" id="XWG-ID-2Mg"/>
                         <outlet property="weatherImageView" destination="NYs-BP-ciB" id="DHf-MZ-1nd"/>
                         <outlet property="womanWithUmbrella" destination="MCD-rZ-FS0" id="ygA-Mk-ySO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.43478260869566" y="119.19642857142857"/>
+            <point key="canvasLocation" x="129.375" y="118.30985915492958"/>
         </scene>
         <!--City Not Found View Controller-->
         <scene sceneID="iJg-TC-gx6">
