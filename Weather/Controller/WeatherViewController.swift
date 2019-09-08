@@ -18,7 +18,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var womanWithUmbrella: UIImageView!
     
-    let networkService = NetworkService() // Удалить
+    let networkServiceAPIXU = NetworkServiceAPIXU() // Удалить
+    
+    
     let networkDataFetcher = NetworkDataFetcher()
     let kindOfWeather = KindOfWeather()
     let motionEffect = MotionEffect()
@@ -29,7 +31,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkService.getWeather(city: "grodno", completion: { [weak self] weather in
+        networkServiceAPIXU.getWeather(city: "grodno", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -43,7 +45,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         city = cityTextField.text!
-        networkService.getWeather(city: city, completion: { [weak self] weather in
+        networkServiceAPIXU.getWeather(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         self.view.endEditing(true)
@@ -58,7 +60,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func setValue(from weather: Weather?) {
+    func setValue(from weather: SearchApixuResults?) {
         if weather?.location == nil || weather?.current == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController

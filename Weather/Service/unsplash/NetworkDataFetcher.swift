@@ -10,7 +10,7 @@ import Foundation
 
 class NetworkDataFetcher {
     
-    var networkService = NetworkService()
+    var networkService = NetworkServiceUnsplash()
     
     func fetchImages(searchTerm: String, completion: @escaping (SearchUnsplashResults?) -> ()) {
         networkService.request(searchTerm: searchTerm) { (data, error) in

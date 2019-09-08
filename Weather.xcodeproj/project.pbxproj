@@ -16,17 +16,18 @@
 		3E7779462323ABA0005DE023 /* CityTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7779452323ABA0005DE023 /* CityTextField.swift */; };
 		3E7779482324FFC5005DE023 /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7779472324FFC5005DE023 /* NetworkDataFetcher.swift */; };
 		3E77794B23250063005DE023 /* SearchUnsplashResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77794A23250063005DE023 /* SearchUnsplashResults.swift */; };
+		3E77795023253608005DE023 /* NetworkServiceAPIXU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77794F23253608005DE023 /* NetworkServiceAPIXU.swift */; };
 		3E9D800723218F2F007E6AD3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */; };
 		3ECC169D231848D8001FECF6 /* UIImageView+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC169C231848D8001FECF6 /* UIImageView+Gif.swift */; };
 		3ECC16A22318529E001FECF6 /* Sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A12318529E001FECF6 /* Sunny.gif */; };
 		3ECC16A6231859B2001FECF6 /* Cloudy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A3231859B2001FECF6 /* Cloudy.gif */; };
 		3ECC16A7231859B2001FECF6 /* Rainy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A4231859B2001FECF6 /* Rainy.gif */; };
 		3ECC16AC231859C0001FECF6 /* Snow.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16AA231859C0001FECF6 /* Snow.gif */; };
-		3EE122A523196E9500E1AE3F /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122A423196E9500E1AE3F /* NetworkService.swift */; };
+		3EE122A523196E9500E1AE3F /* NetworkServiceUnsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122A423196E9500E1AE3F /* NetworkServiceUnsplash.swift */; };
 		3EE122A92319AF2400E1AE3F /* KindOfWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122A82319AF2400E1AE3F /* KindOfWeather.swift */; };
 		3EE122B5231AF49200E1AE3F /* Cats.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3EE122B4231AF49200E1AE3F /* Cats.gif */; };
 		3EE122B7231AFBF000E1AE3F /* CityNotFoundViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122B6231AFBF000E1AE3F /* CityNotFoundViewController.swift */; };
-		3EE122DB231D6F4800E1AE3F /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122DA231D6F4800E1AE3F /* Weather.swift */; };
+		3EE122DB231D6F4800E1AE3F /* SearchApixuResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,17 +42,18 @@
 		3E7779452323ABA0005DE023 /* CityTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTextField.swift; sourceTree = "<group>"; };
 		3E7779472324FFC5005DE023 /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		3E77794A23250063005DE023 /* SearchUnsplashResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUnsplashResults.swift; sourceTree = "<group>"; };
+		3E77794F23253608005DE023 /* NetworkServiceAPIXU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceAPIXU.swift; sourceTree = "<group>"; };
 		3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		3ECC169C231848D8001FECF6 /* UIImageView+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Gif.swift"; sourceTree = "<group>"; };
 		3ECC16A12318529E001FECF6 /* Sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunny.gif; sourceTree = "<group>"; };
 		3ECC16A3231859B2001FECF6 /* Cloudy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cloudy.gif; sourceTree = "<group>"; };
 		3ECC16A4231859B2001FECF6 /* Rainy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Rainy.gif; sourceTree = "<group>"; };
 		3ECC16AA231859C0001FECF6 /* Snow.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Snow.gif; sourceTree = "<group>"; };
-		3EE122A423196E9500E1AE3F /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		3EE122A423196E9500E1AE3F /* NetworkServiceUnsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceUnsplash.swift; sourceTree = "<group>"; };
 		3EE122A82319AF2400E1AE3F /* KindOfWeather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KindOfWeather.swift; sourceTree = "<group>"; };
 		3EE122B4231AF49200E1AE3F /* Cats.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cats.gif; sourceTree = "<group>"; };
 		3EE122B6231AFBF000E1AE3F /* CityNotFoundViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityNotFoundViewController.swift; sourceTree = "<group>"; };
-		3EE122DA231D6F4800E1AE3F /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SearchApixuResults.swift; path = ../../Model/SearchApixuResults.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,25 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		3E77794E232535FD005DE023 /* apixu */ = {
+			isa = PBXGroup;
+			children = (
+				3EE122DA231D6F4800E1AE3F /* SearchApixuResults.swift */,
+				3E77794F23253608005DE023 /* NetworkServiceAPIXU.swift */,
+			);
+			path = apixu;
+			sourceTree = "<group>";
+		};
+		3E777951232541E1005DE023 /* unsplash */ = {
+			isa = PBXGroup;
+			children = (
+				3E7779492325004E005DE023 /* Model */,
+				3EE122A423196E9500E1AE3F /* NetworkServiceUnsplash.swift */,
+				3E7779472324FFC5005DE023 /* NetworkDataFetcher.swift */,
+			);
+			path = unsplash;
+			sourceTree = "<group>";
+		};
 		3ECC169E23184E92001FECF6 /* Gif */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,7 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				3EE122A82319AF2400E1AE3F /* KindOfWeather.swift */,
-				3EE122DA231D6F4800E1AE3F /* Weather.swift */,
 				3E091716232194CB00C7240C /* ParallaxEffect.swift */,
 				3E7779452323ABA0005DE023 /* CityTextField.swift */,
 			);
@@ -156,9 +176,8 @@
 		3EE122B1231AA31C00E1AE3F /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				3E7779492325004E005DE023 /* Model */,
-				3EE122A423196E9500E1AE3F /* NetworkService.swift */,
-				3E7779472324FFC5005DE023 /* NetworkDataFetcher.swift */,
+				3E777951232541E1005DE023 /* unsplash */,
+				3E77794E232535FD005DE023 /* apixu */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -264,11 +283,12 @@
 				3E7779462323ABA0005DE023 /* CityTextField.swift in Sources */,
 				3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */,
 				3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */,
+				3E77795023253608005DE023 /* NetworkServiceAPIXU.swift in Sources */,
 				3ECC169D231848D8001FECF6 /* UIImageView+Gif.swift in Sources */,
 				3EE122B7231AFBF000E1AE3F /* CityNotFoundViewController.swift in Sources */,
-				3EE122A523196E9500E1AE3F /* NetworkService.swift in Sources */,
+				3EE122A523196E9500E1AE3F /* NetworkServiceUnsplash.swift in Sources */,
 				3E77794B23250063005DE023 /* SearchUnsplashResults.swift in Sources */,
-				3EE122DB231D6F4800E1AE3F /* Weather.swift in Sources */,
+				3EE122DB231D6F4800E1AE3F /* SearchApixuResults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
