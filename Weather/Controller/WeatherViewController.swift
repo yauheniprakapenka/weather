@@ -25,22 +25,25 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var womanWithUmbrellaTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var womanWithUmbrellaLeadingConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var backgroundButtonConstraint: NSLayoutConstraint!
+    
     let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
     let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
 
     let kindOfWeather = TypeOfWeather()
     let motionEffect = MotionEffect()
-    let screenSize = ScreenSize()
     
-    var city = "ural"
+    var city = "London"
     var imageFromUnsplashURL = ""
     var arrayForShareWithImage: [UIImage] = []
     var imageIsShow = false
     
+    let bound: CGRect = UIScreen.main.bounds
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkDataFetcherAPIXU.fetchWeather(city: "grodno", completion: { [weak self] weather in
+        networkDataFetcherAPIXU.fetchWeather(city: "London", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -48,6 +51,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         showPhotoButton.layer.cornerRadius = 15
         
         unsplashImageView.alpha = 0
+        
+        backgroundButtonConstraint.constant = (bound.height / 1.9) - 50
         
         self.cityTextField.delegate = self
         self.hideKeyboard()
@@ -78,8 +83,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         if imageIsShow {
             UIImageView.animate(withDuration: 1.5) {
-                self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - self.screenSize.fetchWidth())
-                self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + self.screenSize.fetchWidth())
+                self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - ((28 * self.bound.width) / 100))
+                self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + ((28 * self.bound.width) / 100))
                 self.view.layoutIfNeeded()
             }
             
@@ -139,10 +144,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     func fetchUnsplashPhoto() {
         networkDataFetcherUnsplash.fetchImages(searchTerm: city) { (searchResults) in
             searchResults?.results.map({ (photo) in
-                print(photo.urls["small"]!)
-                
-                let url = URL(string: "\(photo.urls["small"]!)")
+                let url = URL(string: "\(photo.urls["full"]!)")
                 let data = try? Data(contentsOf: url!)
+                print(photo.urls["full"]!)
                 
                 if let imageData = data {
                     let image = UIImage(data: imageData)
