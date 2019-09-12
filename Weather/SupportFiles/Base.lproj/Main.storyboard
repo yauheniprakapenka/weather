@@ -74,7 +74,7 @@
         <!--Weather View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainID" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WeatherViewControllerID" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -250,7 +250,7 @@
         <!--City Not Found View Controller-->
         <scene sceneID="iJg-TC-gx6">
             <objects>
-                <viewController storyboardIdentifier="CityNotFoundID" id="k99-kc-Yyd" customClass="CityNotFoundViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CityNotFoundViewControllerID" id="k99-kc-Yyd" customClass="CityNotFoundViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FS-Ns-f7b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

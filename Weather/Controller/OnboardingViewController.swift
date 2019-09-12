@@ -99,7 +99,7 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
     
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let weatherViewController = storyboard.instantiateViewController(withIdentifier: "MainID") as! WeatherViewController
+        let weatherViewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewControllerID") as! WeatherViewController
         present(weatherViewController, animated: false, completion: nil)
     }
     

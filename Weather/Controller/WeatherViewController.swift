@@ -58,7 +58,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     func setValue(from weather: SearchApixuResults?) {
         if weather?.location == nil || weather?.current == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController
+            let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundViewControllerID") as! CityNotFoundViewController
             secondViewController.message = "Не получилось найти\nгород \(city)"
             present(secondViewController, animated: false, completion: nil)
             
