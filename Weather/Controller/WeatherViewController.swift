@@ -37,8 +37,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     var arrayForShareWithImage: [UIImage] = []
     var imageIsShow = false
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,15 +73,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         weatherImageView.image = UIImage(named: gif)
     }
     
-    @IBAction func shareButtonTapped(_ sender: UIButton) {
-        let image = takeScreenshot()
-        arrayForShareWithImage.removeAll()
-        arrayForShareWithImage.append(image)
-        
-        let shareController = UIActivityViewController(activityItems: arrayForShareWithImage, applicationActivities: nil)
-        present(shareController, animated: true, completion: nil)
-    }
-    
     @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
         imageIsShow = !imageIsShow
         
@@ -114,6 +103,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                 self.showPhotoButton.setTitle("Показать фото", for: .normal)
             }
         }
+    }
+    
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        let image = takeScreenshot()
+        arrayForShareWithImage.removeAll()
+        arrayForShareWithImage.append(image)
+        
+        let shareController = UIActivityViewController(activityItems: arrayForShareWithImage, applicationActivities: nil)
+        present(shareController, animated: true, completion: nil)
     }
     
     func takeScreenshot() -> UIImage {

@@ -19,6 +19,7 @@
 		3E77795023253608005DE023 /* NetworkDataFetcherAPIXU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77794F23253608005DE023 /* NetworkDataFetcherAPIXU.swift */; };
 		3E77795D23258BED005DE023 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77795C23258BED005DE023 /* ScreenSize.swift */; };
 		3E9D800723218F2F007E6AD3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */; };
+		3EB674D3232A97910013EA56 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB674D2232A97910013EA56 /* OnboardingViewController.swift */; };
 		3ECC169D231848D8001FECF6 /* Gif+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC169C231848D8001FECF6 /* Gif+UIImageView.swift */; };
 		3ECC16A22318529E001FECF6 /* Sunny.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A12318529E001FECF6 /* Sunny.gif */; };
 		3ECC16A6231859B2001FECF6 /* Cloudy.gif in Resources */ = {isa = PBXBuildFile; fileRef = 3ECC16A3231859B2001FECF6 /* Cloudy.gif */; };
@@ -46,6 +47,7 @@
 		3E77794F23253608005DE023 /* NetworkDataFetcherAPIXU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcherAPIXU.swift; sourceTree = "<group>"; };
 		3E77795C23258BED005DE023 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		3EB674D2232A97910013EA56 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3ECC169C231848D8001FECF6 /* Gif+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gif+UIImageView.swift"; sourceTree = "<group>"; };
 		3ECC16A12318529E001FECF6 /* Sunny.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Sunny.gif; sourceTree = "<group>"; };
 		3ECC16A3231859B2001FECF6 /* Cloudy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Cloudy.gif; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				3E2ADEDE23158564009212EC /* WeatherViewController.swift */,
 				3EE122B6231AFBF000E1AE3F /* CityNotFoundViewController.swift */,
+				3EB674D2232A97910013EA56 /* OnboardingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				3E77795D23258BED005DE023 /* ScreenSize.swift in Sources */,
 				3E7779462323ABA0005DE023 /* CityTextField.swift in Sources */,
 				3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */,
+				3EB674D3232A97910013EA56 /* OnboardingViewController.swift in Sources */,
 				3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */,
 				3E77795023253608005DE023 /* NetworkDataFetcherAPIXU.swift in Sources */,
 				3ECC169D231848D8001FECF6 /* Gif+UIImageView.swift in Sources */,
