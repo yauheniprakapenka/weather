@@ -116,22 +116,21 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" translatesAutoresizingMaskIntoConstraints="NO" id="NYs-BP-ciB">
-                                        <rect key="frame" x="196" y="0.0" width="45" height="45"/>
+                                        <rect key="frame" x="196" y="0.0" width="50" height="55"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="45" id="1Yd-No-7AY"/>
-                                            <constraint firstAttribute="height" constant="45" id="Rpp-qg-Mb5"/>
+                                            <constraint firstAttribute="width" constant="50" id="kpI-b4-hH7"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="NYs-BP-ciB" firstAttribute="top" secondItem="ONr-XJ-18t" secondAttribute="top" id="0RB-sP-nKD"/>
                                     <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="6A4-uz-pFA" secondAttribute="trailing" constant="50" id="1VD-Kp-y0M"/>
-                                    <constraint firstItem="NYs-BP-ciB" firstAttribute="leading" secondItem="jic-G7-ypf" secondAttribute="trailing" constant="15" id="6e2-RV-nuh"/>
                                     <constraint firstItem="6A4-uz-pFA" firstAttribute="leading" secondItem="ONr-XJ-18t" secondAttribute="leading" constant="50" id="7Sl-z6-Tnx"/>
+                                    <constraint firstItem="6A4-uz-pFA" firstAttribute="top" secondItem="NYs-BP-ciB" secondAttribute="bottom" id="8Fr-S1-n2e"/>
+                                    <constraint firstItem="NYs-BP-ciB" firstAttribute="top" secondItem="ONr-XJ-18t" secondAttribute="top" id="DFE-eJ-fDj"/>
                                     <constraint firstItem="jic-G7-ypf" firstAttribute="leading" secondItem="ONr-XJ-18t" secondAttribute="leading" constant="50" id="K6r-hH-c4Q"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NYs-BP-ciB" secondAttribute="trailing" constant="20" id="Ozp-dc-82T"/>
+                                    <constraint firstItem="NYs-BP-ciB" firstAttribute="leading" secondItem="jic-G7-ypf" secondAttribute="trailing" constant="15" id="Phi-KX-wUf"/>
                                     <constraint firstItem="6A4-uz-pFA" firstAttribute="top" secondItem="jic-G7-ypf" secondAttribute="bottom" id="WUa-XU-jAT"/>
                                     <constraint firstAttribute="bottom" secondItem="6A4-uz-pFA" secondAttribute="bottom" id="XYU-qX-Q2j"/>
                                     <constraint firstItem="jic-G7-ypf" firstAttribute="top" secondItem="ONr-XJ-18t" secondAttribute="top" id="tgF-vK-zla"/>
@@ -158,7 +157,7 @@
                                 <color key="textColor" red="0.13925933839999999" green="0.097845338279999999" blue="0.2941348553" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created by yauheni prakapenka" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="086-t7-n2F">
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created by yauheni prakapenka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="086-t7-n2F">
                                 <rect key="frame" x="40" y="510" width="240" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="bgc-83-N5t"/>

@@ -26,6 +26,9 @@
 <b>Архитектура:</b>
 - MVC
 
+<b>CocoaPods:</b>
+- Bagel для сетевого дебага
+
 <b>Скриншоты:</b>
 
 <a href="https://ibb.co/PMN8bjW"><img src="https://i.ibb.co/ScPp1ym/Simulator-Screen-Shot-i-Phone-X-2019-09-08-at-23-35-18.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-08-at-23-35-18" width="200"></a>
