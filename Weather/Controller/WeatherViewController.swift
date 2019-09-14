@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import Lottie
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var temperatureLabel: UILabel!
+    @IBOutlet weak var loadingLabel: UILabel!
+    
+    @IBOutlet weak var cityTextField: UITextField!
     
     @IBOutlet weak var unsplashImageView: UIImageView!
     @IBOutlet weak var weatherImageView: UIImageView!
@@ -22,27 +25,29 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var showPhotoButton: UIButton!
     
+    @IBOutlet weak var backgroundButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var womanWithUmbrellaTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var womanWithUmbrellaLeadingConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var lottieView: AnimationView!
     
     let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
     let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
 
     let kindOfWeather = TypeOfWeather()
     let motionEffect = MotionEffect()
-    let screenSize = ScreenSize()
     
-    var city = "ural"
+    var city = "London"
     var imageFromUnsplashURL = ""
     var arrayForShareWithImage: [UIImage] = []
     var imageIsShow = false
     
+    let bound: CGRect = UIScreen.main.bounds
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkDataFetcherAPIXU.fetchWeather(city: "grodno", completion: { [weak self] weather in
+        self.networkDataFetcherAPIXU.fetchWeather(city: "London", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -51,37 +56,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         unsplashImageView.alpha = 0
         
+        backgroundButtonConstraint.constant = (bound.height / 1.9) - 50
+        
         self.cityTextField.delegate = self
         self.hideKeyboard()
         
-        motionEffect.applyParallax(toView: womanWithUmbrella, magnitude: 60)
-    }
-    
-    func setValue(from weather: SearchApixuResults?) {
-        if weather?.location == nil || weather?.current == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundID") as! CityNotFoundViewController
-            secondViewController.message = "Не получилось найти\nгород \(city)"
-            present(secondViewController, animated: false, completion: nil)
-            
-            return
+        addCustomActivityIndicator()
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            // Download file or perform expensive task
+            self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
         }
-        
-        cityLabel.text = "\(weather?.location?.name ?? "")"
-        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
-        conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
-
-        let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
-        weatherImageView.image = UIImage(named: gif)
-    }
-    
-    @IBAction func shareButtonTapped(_ sender: UIButton) {
-        let image = takeScreenshot()
-        arrayForShareWithImage.removeAll()
-        arrayForShareWithImage.append(image)
-        
-        let shareController = UIActivityViewController(activityItems: arrayForShareWithImage, applicationActivities: nil)
-        present(shareController, animated: true, completion: nil)
     }
     
     @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
@@ -89,12 +74,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         if imageIsShow {
             UIImageView.animate(withDuration: 1.5) {
-                self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - self.screenSize.fetchWidth())
-                self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + self.screenSize.fetchWidth())
+                self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - ((28 * self.bound.width) / 100))
+                self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + ((28 * self.bound.width) / 100))
                 self.view.layoutIfNeeded()
             }
             
-            fetchUnsplashPhoto()
+            downloadUnsplashPhoto()
             
             UIImageView.animate(withDuration: 0.5, animations: {
                 self.unsplashImageView.alpha = 1
@@ -116,6 +101,15 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func shareButtonTapped(_ sender: UIButton) {
+        let image = takeScreenshot()
+        arrayForShareWithImage.removeAll()
+        arrayForShareWithImage.append(image)
+        
+        let shareController = UIActivityViewController(activityItems: arrayForShareWithImage, applicationActivities: nil)
+        present(shareController, animated: true, completion: nil)
+    }
+    
     func takeScreenshot() -> UIImage {
         let renderer = UIGraphicsImageRenderer(size: view.bounds.size)
         let image = renderer.image { _ in
@@ -126,9 +120,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if imageIsShow { startCustomActivityIndicator() }
+        
         city = cityTextField.text!
         
-        fetchUnsplashPhoto()
+        downloadUnsplashPhoto()
         
         networkDataFetcherAPIXU.fetchWeather(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
@@ -138,13 +135,25 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func fetchUnsplashPhoto() {
-        networkDataFetcherUnsplash.fetchImages(searchTerm: city) { (searchResults) in
+    fileprivate func startCustomActivityIndicator() {
+        _ = Timer.scheduledTimer(withTimeInterval: 0.27, repeats: false, block: { (finished) in
+            self.lottieView.alpha = 1
+            self.loadingLabel.alpha = 1
+            self.lottieView.play { (finished) in
+                UIView.animate(withDuration: 0.2) {
+                    self.lottieView.alpha = 0
+                    self.loadingLabel.alpha = 0
+                }
+            }
+        })
+    }
+    
+    func downloadUnsplashPhoto() {
+        networkDataFetcherUnsplash.downloadImage(searchTerm: city) { (searchResults) in
             searchResults?.results.map({ (photo) in
-                print(photo.urls["small"]!)
-                
-                let url = URL(string: "\(photo.urls["small"]!)")
+                let url = URL(string: "\(photo.urls["full"]!)")
                 let data = try? Data(contentsOf: url!)
+                print(photo.urls["full"]!)
                 
                 if let imageData = data {
                     let image = UIImage(data: imageData)
@@ -153,7 +162,36 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             })
         }
     }
-
+    
+    func setValue(from weather: SearchApixuResults?) {
+        if weather?.location == nil || weather?.current == nil {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let cityNotFoundViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundViewControllerID") as! CityNotFoundViewController
+            cityNotFoundViewController.message = "Не получилось найти\nгород \(city)"
+            present(cityNotFoundViewController, animated: false, completion: nil)
+            
+            return
+        }
+        
+        cityLabel.text = "\(weather?.location?.name ?? "")"
+        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
+        conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
+        
+        let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
+        weatherImageView.image = UIImage(named: gif)
+    }
+    
+    func addCustomActivityIndicator() {
+        lottieView.loopMode = .playOnce
+        lottieView.animation = Animation.named("1173-sun-burst-weather-icon")
+        lottieView.animationSpeed = 1.8
+        lottieView.contentMode = .scaleAspectFill
+        lottieView.layer.cornerRadius = 13
+        lottieView.alpha = 0
+        loadingLabel.alpha = 0
+    }
+    
 }
 
 

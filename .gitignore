@@ -28,6 +28,12 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+### Xcode ###
+build
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcworkspace/contents.xcworkspacedata
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace
@@ -66,3 +72,6 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# CocoaPods
+Pods/
