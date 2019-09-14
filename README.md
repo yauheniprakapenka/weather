@@ -38,7 +38,8 @@
 <a href="https://ibb.co/cQYt90c"><img src="https://i.ibb.co/dDm6vF0/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58" width="200"></a>
 
 <b>Видео:</b>
-1. Демонстрация паралаакса (https://drive.google.com/open?id=1O5ewI1XtnKCTTpFw-nKByih-_pjWU4Ei)
-2. Демонстрация возможностей [здесь](https://drive.google.com/open?id=1SeBoWJU3KnPr-T8A0ROREVFPtonrQcgN)
+1. Демонстрация #1 [здесь](https://drive.google.com/open?id=1SeBoWJU3KnPr-T8A0ROREVFPtonrQcgN)
+2. Демонстрация #2 (параллакс) [здесь](https://drive.google.com/open?id=1O5ewI1XtnKCTTpFw-nKByih-_pjWU4Ei)
+
 
 
