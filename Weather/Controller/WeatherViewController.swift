@@ -142,7 +142,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func fetchUnsplashPhoto() {
-        networkDataFetcherUnsplash.fetchImages(searchTerm: city) { (searchResults) in
+        networkDataFetcherUnsplash.downloadImage(searchTerm: city) { (searchResults) in
             searchResults?.results.map({ (photo) in
                 let url = URL(string: "\(photo.urls["full"]!)")
                 let data = try? Data(contentsOf: url!)

@@ -12,7 +12,7 @@ class NetworkDataFetcherUnsplash {
     
     var networkService = NetworkServiceUnsplash()
     
-    func fetchImages(searchTerm: String, completion: @escaping (SearchUnsplashResults?) -> ()) {
+    func downloadImage(searchTerm: String, completion: @escaping (SearchUnsplashResults?) -> ()) {
         networkService.request(searchTerm: searchTerm) { (data, error) in
             if let error = error {
                 print("Error received requesting data: \(error.localizedDescription)")
