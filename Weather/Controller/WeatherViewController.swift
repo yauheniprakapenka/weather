@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Lottie
 
 class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var conditionTextLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
-    @IBOutlet weak var cityTextField: UITextField!
     @IBOutlet weak var temperatureLabel: UILabel!
+    
+    @IBOutlet weak var cityTextField: UITextField!
     
     @IBOutlet weak var unsplashImageView: UIImageView!
     @IBOutlet weak var weatherImageView: UIImageView!
@@ -24,8 +26,9 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var womanWithUmbrellaTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var womanWithUmbrellaLeadingConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var backgroundButtonConstraint: NSLayoutConstraint!
+    
+    @IBOutlet var lottieSearchView: AnimationView!
     
     let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
     let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
@@ -43,7 +46,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        networkDataFetcherAPIXU.fetchWeather(city: "London", completion: { [weak self] weather in
+        self.networkDataFetcherAPIXU.fetchWeather(city: "London", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -57,25 +60,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         self.cityTextField.delegate = self
         self.hideKeyboard()
         
-        motionEffect.applyParallax(toView: womanWithUmbrella, magnitude: 60)
-    }
-    
-    func setValue(from weather: SearchApixuResults?) {
-        if weather?.location == nil || weather?.current == nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let secondViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundViewControllerID") as! CityNotFoundViewController
-            secondViewController.message = "Не получилось найти\nгород \(city)"
-            present(secondViewController, animated: false, completion: nil)
-            
-            return
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
         }
-        
-        cityLabel.text = "\(weather?.location?.name ?? "")"
-        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
-        conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
-
-        let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
-        weatherImageView.image = UIImage(named: gif)
+            
     }
     
     @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
@@ -88,7 +76,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                 self.view.layoutIfNeeded()
             }
             
-            fetchUnsplashPhoto()
+            downloadUnsplashPhoto()
             
             UIImageView.animate(withDuration: 0.5, animations: {
                 self.unsplashImageView.alpha = 1
@@ -129,9 +117,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
         city = cityTextField.text!
         
-        fetchUnsplashPhoto()
+        downloadUnsplashPhoto()
         
         networkDataFetcherAPIXU.fetchWeather(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
@@ -141,7 +130,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    func fetchUnsplashPhoto() {
+    func downloadUnsplashPhoto() {
+        
         networkDataFetcherUnsplash.downloadImage(searchTerm: city) { (searchResults) in
             searchResults?.results.map({ (photo) in
                 let url = URL(string: "\(photo.urls["full"]!)")
@@ -154,6 +144,31 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+    }
+    
+    func setValue(from weather: SearchApixuResults?) {
+        if weather?.location == nil || weather?.current == nil {
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let cityNotFoundViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundViewControllerID") as! CityNotFoundViewController
+            cityNotFoundViewController.message = "Не получилось найти\nгород \(city)"
+            present(cityNotFoundViewController, animated: false, completion: nil)
+            
+            return
+        }
+        
+        cityLabel.text = "\(weather?.location?.name ?? "")"
+        temperatureLabel.text = "\(weather?.current?.temp_c ?? 0)°"
+        conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
+        
+        let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
+        weatherImageView.image = UIImage(named: gif)
+    }
+    
+    func startLottieSearchViewAnimation() {
+        self.lottieSearchView.play()
+        self.lottieSearchView.loopMode = .loop
+        self.lottieSearchView.animation = Animation.named("1173-sun-burst-weather-icon")
     }
 
 }

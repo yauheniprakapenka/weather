@@ -7,5 +7,6 @@ target 'jsonparse' do
 
   # Pods for jsonparse
   pod 'Bagel', '~>  1.3.2'
+  pod 'lottie-ios'
 
 end

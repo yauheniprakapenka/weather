@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,12 @@
 		3E2ADEE223158564009212EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE023158564009212EC /* Main.storyboard */; };
 		3E2ADEE423158565009212EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE323158565009212EC /* Assets.xcassets */; };
 		3E2ADEE723158565009212EC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE523158565009212EC /* LaunchScreen.storyboard */; };
+		3E732507232D03F7007114C0 /* 2642-search.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E732506232D03F7007114C0 /* 2642-search.json */; };
+		3E732509232D09EC007114C0 /* lf30_editor_8Z7b9Q.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E732508232D09EC007114C0 /* lf30_editor_8Z7b9Q.json */; };
+		3E73250B232D134E007114C0 /* lf30_editor_8eP5OX.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E73250A232D134E007114C0 /* lf30_editor_8eP5OX.json */; };
+		3E73250D232D1DDC007114C0 /* 9303-simple-4-dot-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E73250C232D1DDB007114C0 /* 9303-simple-4-dot-loader.json */; };
+		3E73250F232D1EAF007114C0 /* 9313-loader.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E73250E232D1EAF007114C0 /* 9313-loader.json */; };
+		3E732511232D255F007114C0 /* 1173-sun-burst-weather-icon.json in Resources */ = {isa = PBXBuildFile; fileRef = 3E732510232D255E007114C0 /* 1173-sun-burst-weather-icon.json */; };
 		3E7779462323ABA0005DE023 /* CityTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7779452323ABA0005DE023 /* CityTextField.swift */; };
 		3E7779482324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7779472324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift */; };
 		3E77794B23250063005DE023 /* SearchUnsplashResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77794A23250063005DE023 /* SearchUnsplashResults.swift */; };
@@ -42,6 +48,12 @@
 		3E2ADEE323158565009212EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3E2ADEE623158565009212EC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3E2ADEE823158565009212EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3E732506232D03F7007114C0 /* 2642-search.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "2642-search.json"; sourceTree = "<group>"; };
+		3E732508232D09EC007114C0 /* lf30_editor_8Z7b9Q.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_8Z7b9Q.json; sourceTree = "<group>"; };
+		3E73250A232D134E007114C0 /* lf30_editor_8eP5OX.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = lf30_editor_8eP5OX.json; sourceTree = "<group>"; };
+		3E73250C232D1DDB007114C0 /* 9303-simple-4-dot-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9303-simple-4-dot-loader.json"; sourceTree = "<group>"; };
+		3E73250E232D1EAF007114C0 /* 9313-loader.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "9313-loader.json"; sourceTree = "<group>"; };
+		3E732510232D255E007114C0 /* 1173-sun-burst-weather-icon.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "1173-sun-burst-weather-icon.json"; sourceTree = "<group>"; };
 		3E7779452323ABA0005DE023 /* CityTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityTextField.swift; sourceTree = "<group>"; };
 		3E7779472324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcherUnsplash.swift; sourceTree = "<group>"; };
 		3E77794A23250063005DE023 /* SearchUnsplashResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUnsplashResults.swift; sourceTree = "<group>"; };
@@ -115,6 +127,19 @@
 				3EE122D8231D3CCC00E1AE3F /* Resource */,
 			);
 			path = Weather;
+			sourceTree = "<group>";
+		};
+		3E732505232D03DB007114C0 /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				3E732510232D255E007114C0 /* 1173-sun-burst-weather-icon.json */,
+				3E73250E232D1EAF007114C0 /* 9313-loader.json */,
+				3E73250C232D1DDB007114C0 /* 9303-simple-4-dot-loader.json */,
+				3E732508232D09EC007114C0 /* lf30_editor_8Z7b9Q.json */,
+				3E73250A232D134E007114C0 /* lf30_editor_8eP5OX.json */,
+				3E732506232D03F7007114C0 /* 2642-search.json */,
+			);
+			path = Lottie;
 			sourceTree = "<group>";
 		};
 		3E7779492325004E005DE023 /* Model */ = {
@@ -222,6 +247,7 @@
 		3EE122D8231D3CCC00E1AE3F /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3E732505232D03DB007114C0 /* Lottie */,
 				3ECC169E23184E92001FECF6 /* Gif */,
 				3E2ADEE323158565009212EC /* Assets.xcassets */,
 			);
@@ -243,7 +269,6 @@
 				EF011E06BF91A0F3E9F918EB /* Pods-jsonparse.debug.xcconfig */,
 				5428024027C71719DF4E469C /* Pods-jsonparse.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -307,13 +332,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E73250D232D1DDC007114C0 /* 9303-simple-4-dot-loader.json in Resources */,
 				3E2ADEE723158565009212EC /* LaunchScreen.storyboard in Resources */,
+				3E73250B232D134E007114C0 /* lf30_editor_8eP5OX.json in Resources */,
 				3E2ADEE423158565009212EC /* Assets.xcassets in Resources */,
 				3ECC16A7231859B2001FECF6 /* Rainy.gif in Resources */,
 				3ECC16A6231859B2001FECF6 /* Cloudy.gif in Resources */,
 				3ECC16AC231859C0001FECF6 /* Snow.gif in Resources */,
 				3ECC16A22318529E001FECF6 /* Sunny.gif in Resources */,
 				3E2ADEE223158564009212EC /* Main.storyboard in Resources */,
+				3E73250F232D1EAF007114C0 /* 9313-loader.json in Resources */,
+				3E732511232D255F007114C0 /* 1173-sun-burst-weather-icon.json in Resources */,
+				3E732507232D03F7007114C0 /* 2642-search.json in Resources */,
+				3E732509232D09EC007114C0 /* lf30_editor_8Z7b9Q.json in Resources */,
 				3EE122B5231AF49200E1AE3F /* Cats.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

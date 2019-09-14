@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4t2-r3-ngF">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="4t2-r3-ngF" customClass="OnboardingViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HSd-d3-8qS">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QeN-K1-b0v">
-                                <rect key="frame" x="40" y="463" width="240" height="45"/>
+                                <rect key="frame" x="40" y="757" width="334" height="45"/>
                                 <color key="backgroundColor" red="0.91889715194702148" green="0.29972788691520691" blue="0.41568070650100708" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="mou-uz-hes"/>
@@ -32,7 +32,7 @@
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="zRy-GB-PdO">
-                                <rect key="frame" x="140.5" y="406" width="39" height="37"/>
+                                <rect key="frame" x="187.5" y="700" width="39" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="37" id="6t5-rx-Yth"/>
                                     <constraint firstAttribute="width" constant="39" id="BDR-4L-Wrm"/>
@@ -44,7 +44,7 @@
                                 </connections>
                             </pageControl>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sTV-4A-3ew">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="384"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="678"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +76,7 @@
             <objects>
                 <viewController storyboardIdentifier="WeatherViewControllerID" id="BYZ-38-t0r" customClass="WeatherViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Backgroud" translatesAutoresizingMaskIntoConstraints="NO" id="v0N-y1-ntz">
@@ -84,7 +84,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uQC-pV-teK">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="0"/>
@@ -92,13 +92,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BackgroundBotton" translatesAutoresizingMaskIntoConstraints="NO" id="QZc-TZ-JjQ">
-                                <rect key="frame" x="0.0" y="300" width="320" height="268"/>
+                                <rect key="frame" x="0.0" y="300" width="414" height="596"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WomanWithUmbrella" translatesAutoresizingMaskIntoConstraints="NO" id="MCD-rZ-FS0">
-                                <rect key="frame" x="163" y="200" width="212" height="358"/>
+                                <rect key="frame" x="163" y="224" width="306" height="662"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ONr-XJ-18t">
-                                <rect key="frame" x="0.0" y="60" width="320" height="100"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="100"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="jic-G7-ypf">
                                         <rect key="frame" x="50" y="0.0" width="131" height="55"/>
@@ -110,7 +110,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="t°" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="28" translatesAutoresizingMaskIntoConstraints="NO" id="6A4-uz-pFA">
-                                        <rect key="frame" x="50" y="55" width="220" height="45"/>
+                                        <rect key="frame" x="50" y="55" width="314" height="45"/>
                                         <fontDescription key="fontDescription" name="Georgia" family="Georgia" pointSize="40"/>
                                         <color key="textColor" red="0.13925933837890625" green="0.09784533828496933" blue="0.29413485527038574" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
@@ -129,6 +129,7 @@
                                     <constraint firstItem="6A4-uz-pFA" firstAttribute="leading" secondItem="ONr-XJ-18t" secondAttribute="leading" constant="50" id="7Sl-z6-Tnx"/>
                                     <constraint firstItem="6A4-uz-pFA" firstAttribute="top" secondItem="NYs-BP-ciB" secondAttribute="bottom" id="8Fr-S1-n2e"/>
                                     <constraint firstItem="NYs-BP-ciB" firstAttribute="top" secondItem="ONr-XJ-18t" secondAttribute="top" id="DFE-eJ-fDj"/>
+                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NYs-BP-ciB" secondAttribute="trailing" constant="20" id="HpT-Ra-xjq"/>
                                     <constraint firstItem="jic-G7-ypf" firstAttribute="leading" secondItem="ONr-XJ-18t" secondAttribute="leading" constant="50" id="K6r-hH-c4Q"/>
                                     <constraint firstItem="NYs-BP-ciB" firstAttribute="leading" secondItem="jic-G7-ypf" secondAttribute="trailing" constant="15" id="Phi-KX-wUf"/>
                                     <constraint firstItem="6A4-uz-pFA" firstAttribute="top" secondItem="jic-G7-ypf" secondAttribute="bottom" id="WUa-XU-jAT"/>
@@ -138,7 +139,7 @@
                                 </constraints>
                             </view>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cob-fn-EDb" customClass="CityTextField" customModule="jsonparse" customModuleProvider="target">
-                                <rect key="frame" x="50" y="264" width="220" height="40"/>
+                                <rect key="frame" x="97" y="428" width="220" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="LWR-X4-ljs"/>
@@ -149,7 +150,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="5e3-3t-f4P">
-                                <rect key="frame" x="50" y="455" width="250" height="53"/>
+                                <rect key="frame" x="50" y="749" width="344" height="53"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="53" id="MSn-ak-bav"/>
                                 </constraints>
@@ -158,7 +159,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created by yauheni prakapenka" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="086-t7-n2F">
-                                <rect key="frame" x="40" y="510" width="240" height="18"/>
+                                <rect key="frame" x="40" y="838" width="334" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="bgc-83-N5t"/>
                                 </constraints>
@@ -167,17 +168,17 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WFR-kA-byD">
-                                <rect key="frame" x="0.0" y="395" width="320" height="40"/>
+                                <rect key="frame" x="0.0" y="689" width="414" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jk5-Px-PIL">
-                                        <rect key="frame" x="155" y="0.0" width="10" height="40"/>
+                                        <rect key="frame" x="202" y="0.0" width="10" height="40"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="10" id="bw0-Wj-qSa"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Opc-a6-NB2">
-                                        <rect key="frame" x="20" y="0.0" width="115" height="40"/>
+                                        <rect key="frame" x="20" y="0.0" width="162" height="40"/>
                                         <color key="backgroundColor" red="0.67258977890014648" green="0.68232405185699463" blue="0.92681092023849487" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Показать фото">
@@ -188,7 +189,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="axC-c4-c4e">
-                                        <rect key="frame" x="155" y="0.0" width="145" height="40"/>
+                                        <rect key="frame" x="202" y="0.0" width="192" height="40"/>
                                         <color key="backgroundColor" red="0.98922234773635864" green="0.85526055097579956" blue="0.18064752221107483" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="Поделиться погодой">
@@ -276,18 +277,18 @@
             <objects>
                 <viewController storyboardIdentifier="CityNotFoundViewControllerID" id="k99-kc-Yyd" customClass="CityNotFoundViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4FS-Ns-f7b">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ep0-WD-WSU">
-                                <rect key="frame" x="0.0" y="185.5" width="320" height="140"/>
+                                <rect key="frame" x="0.0" y="333" width="414" height="140"/>
                                 <color key="backgroundColor" red="0.69982272386550903" green="0.99012142419815063" blue="0.88626557588577271" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="140" id="J3a-dF-s1S"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Город не найден" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kam-Oz-juK">
-                                <rect key="frame" x="0.0" y="342.5" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="490" width="414" height="60"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="DlQ-dy-RY2"/>
                                 </constraints>
@@ -296,7 +297,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69C-sc-Zr9">
-                                <rect key="frame" x="60" y="484" width="200" height="44"/>
+                                <rect key="frame" x="60" y="778" width="294" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="9Bw-UT-pPn"/>
                                 </constraints>
