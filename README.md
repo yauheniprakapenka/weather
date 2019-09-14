@@ -32,8 +32,9 @@
 
 <b>Скриншоты:</b>
 
-<a href="https://ibb.co/PMN8bjW"><img src="https://i.ibb.co/ScPp1ym/Simulator-Screen-Shot-i-Phone-X-2019-09-08-at-23-35-18.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-08-at-23-35-18" width="200"></a>
-<a href="https://ibb.co/84V8321"><img src="https://i.ibb.co/k6Fcn0N/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-30.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-30" width="200"></a>
+<a href="https://ibb.co/BnvLcp9"><img src="https://i.ibb.co/kmzK57t/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-36.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-36" width="200"></a>
+<a href="https://ibb.co/hdnL8M3"><img src="https://i.ibb.co/6tprsZj/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-42.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-42" width="200"></a>
+<a href="https://ibb.co/JqNQFS9"><img src="https://i.ibb.co/PMRQzVd/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-30-13.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-30-13" width="200"></a>
 <a href="https://ibb.co/cQYt90c"><img src="https://i.ibb.co/dDm6vF0/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58" width="200"></a>
 
 <b>Видео:</b>
