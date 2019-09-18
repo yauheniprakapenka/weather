@@ -239,6 +239,21 @@
                                     <constraint firstAttribute="width" constant="100" id="oep-Ob-Kvd"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3z-if-xUw">
+                                <rect key="frame" x="20" y="628" width="162" height="40"/>
+                                <color key="backgroundColor" red="0.48996353149999999" green="0.72386533019999999" blue="0.65705603359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="r0R-mk-FmT"/>
+                                    <constraint firstAttribute="width" constant="162" id="uuS-EC-wva"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="История">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="zRU-Fg-Grk" kind="show" id="MQE-Wx-9Yg"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9372674822807312" green="0.93723231554031372" blue="0.9372560977935791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
@@ -255,12 +270,14 @@
                             <constraint firstItem="ONr-XJ-18t" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Twy-8U-Arj"/>
                             <constraint firstAttribute="bottom" secondItem="fgL-Ve-nd6" secondAttribute="bottom" id="UUr-Fw-7og"/>
                             <constraint firstItem="cob-fn-EDb" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Vpu-vJ-vK4"/>
+                            <constraint firstItem="N3z-if-xUw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="W1q-Tr-tDK"/>
                             <constraint firstItem="WFR-kA-byD" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="b9A-Cf-Bh9"/>
                             <constraint firstItem="QZc-TZ-JjQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="bGD-8S-aMu"/>
                             <constraint firstItem="cob-fn-EDb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dCo-eA-Ebt"/>
                             <constraint firstItem="uQC-pV-teK" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="dGF-5d-rsJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5e3-3t-f4P" secondAttribute="trailing" constant="20" id="eEM-2R-7l1"/>
                             <constraint firstItem="uQC-pV-teK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="fHh-9z-dZw"/>
+                            <constraint firstItem="WFR-kA-byD" firstAttribute="top" secondItem="N3z-if-xUw" secondAttribute="bottom" constant="21" id="feU-g2-gb1"/>
                             <constraint firstItem="ONr-XJ-18t" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="g1J-Rr-JT3"/>
                             <constraint firstItem="cob-fn-EDb" firstAttribute="top" secondItem="e9b-V5-naS" secondAttribute="bottom" constant="20" id="iG3-SK-q3D"/>
                             <constraint firstItem="uQC-pV-teK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ifA-Ej-M5r"/>
@@ -362,7 +379,60 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IoR-dm-vpk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="915" y="121"/>
+            <point key="canvasLocation" x="123" y="-569"/>
+        </scene>
+        <!--История-->
+        <scene sceneID="YtT-Hg-jSb">
+            <objects>
+                <tableViewController id="Kvl-u9-TH3" customClass="HistoryTableViewController" customModule="jsonparse" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="QGQ-cn-kU8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cellID" id="Vu6-ws-vIz">
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Vu6-ws-vIz" id="khz-Db-17d">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Kvl-u9-TH3" id="9n8-9u-KGZ"/>
+                            <outlet property="delegate" destination="Kvl-u9-TH3" id="6cL-Mt-JE9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="История" id="O6U-Wl-m6S">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" id="4nz-U5-pPd">
+                            <connections>
+                                <action selector="backButtonTapped:" destination="Kvl-u9-TH3" id="gZK-HM-GCe"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u4B-2n-iaa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1697" y="116"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GxW-m4-JRe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="zRU-Fg-Grk" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5Il-Ur-5lk">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Kvl-u9-TH3" kind="relationship" relationship="rootViewController" id="FB0-1v-lZS"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eU0-WS-ZiG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="910" y="115"/>
         </scene>
     </scenes>
     <resources>

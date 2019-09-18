@@ -53,8 +53,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             self?.setValue(from: weather)
         })
         
-        shareButton.layer.cornerRadius = 15
-        showPhotoButton.layer.cornerRadius = 15
+        shareButton.layer.cornerRadius = 10
+        showPhotoButton.layer.cornerRadius = 10
         
         unsplashImageView.alpha = 0
         
