@@ -10,11 +10,10 @@ import UIKit
 
 class HistoryTableViewController: UITableViewController {
     
-    var historyItem = ["Tokio", "Paris"]
+    var historyItem = [String]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -22,9 +21,9 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID")
-        cell?.textLabel?.text = historyItem[indexPath.row]
-        return cell!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
+        cell.textLabel?.text = historyItem[indexPath.row]
+        return cell
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {

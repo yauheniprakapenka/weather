@@ -244,20 +244,21 @@
                                 <color key="backgroundColor" red="0.48996353149999999" green="0.72386533019999999" blue="0.65705603359999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="r0R-mk-FmT"/>
-                                    <constraint firstAttribute="width" constant="162" id="uuS-EC-wva"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="История">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zRU-Fg-Grk" kind="show" id="MQE-Wx-9Yg"/>
+                                    <action selector="historyButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LYa-OQ-SWP"/>
+                                    <segue destination="zRU-Fg-Grk" kind="show" identifier="HistoryVCSeque" id="MQE-Wx-9Yg"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.9372674822807312" green="0.93723231554031372" blue="0.9372560977935791" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="5e3-3t-f4P" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="50" id="0dV-ES-Hlt"/>
+                            <constraint firstItem="N3z-if-xUw" firstAttribute="width" secondItem="Opc-a6-NB2" secondAttribute="width" id="1gL-LA-0S9"/>
                             <constraint firstItem="WFR-kA-byD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1ih-6y-RBv"/>
                             <constraint firstAttribute="bottom" secondItem="MCD-rZ-FS0" secondAttribute="bottom" constant="10" id="B1P-tZ-Uj1"/>
                             <constraint firstItem="ONr-XJ-18t" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="D0F-l1-JQ3"/>
@@ -305,6 +306,7 @@
                         <outlet property="cityTextField" destination="cob-fn-EDb" id="9Ua-B3-shW"/>
                         <outlet property="conditionTextLabel" destination="jic-G7-ypf" id="duS-3f-DlC"/>
                         <outlet property="gradientView" destination="fgL-Ve-nd6" id="cns-CZ-Mmy"/>
+                        <outlet property="historyButton" destination="N3z-if-xUw" id="bBb-yd-rtd"/>
                         <outlet property="loadingLabel" destination="yq7-0J-j6V" id="5n0-xK-yeh"/>
                         <outlet property="lottieView" destination="e9b-V5-naS" id="awN-8k-qEV"/>
                         <outlet property="shareButton" destination="axC-c4-c4e" id="nc0-Km-5dv"/>

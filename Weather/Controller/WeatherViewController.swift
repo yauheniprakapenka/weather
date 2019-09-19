@@ -26,6 +26,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var shareButton: UIButton!
     @IBOutlet weak var showPhotoButton: UIButton!
+    @IBOutlet weak var historyButton: UIButton!
     
     @IBOutlet weak var backgroundButtonConstraint: NSLayoutConstraint!
     @IBOutlet weak var womanWithUmbrellaTrailingConstraint: NSLayoutConstraint!
@@ -43,6 +44,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     var imageFromUnsplashURL = ""
     var arrayForShareWithImage: [UIImage] = []
     var imageIsShow = false
+    var weatherSearchHistory = [String]()
     
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -55,6 +57,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         shareButton.layer.cornerRadius = 10
         showPhotoButton.layer.cornerRadius = 10
+        historyButton.layer.cornerRadius = 10
         
         unsplashImageView.alpha = 0
         
@@ -124,7 +127,11 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        if imageIsShow { startCustomActivityIndicator() }
+        weatherSearchHistory.append(cityTextField.text!)
+        
+        if imageIsShow {
+            startCustomActivityIndicator()
+        }
         
         city = cityTextField.text!
         
@@ -185,6 +192,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         weatherImageView.image = UIImage(named: gif)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let navVC = segue.destination as! UINavigationController
+        let tableVC = navVC.viewControllers.first as! HistoryTableViewController
+        tableVC.historyItem = weatherSearchHistory
+    }
+    
     func addCustomActivityIndicator() {
         lottieView.loopMode = .playOnce
         lottieView.animation = Animation.named("1173-sun-burst-weather-icon")
@@ -206,6 +219,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         gradientLayer.colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor, #colorLiteral(red: 0.9663092494, green: 0.9565795064, blue: 0.9565963149, alpha: 0).cgColor]
         myNewView.layer.addSublayer(gradientLayer)
+    }
+    
+    @IBAction func historyButtonTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: "HistoryVCSeque", sender: self)
     }
     
 }
