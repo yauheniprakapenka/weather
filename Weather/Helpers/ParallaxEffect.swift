@@ -21,6 +21,8 @@ class MotionEffect {
         let group = UIMotionEffectGroup()
         group.motionEffects = [xMotion, yMotion]
         
-        view.addMotionEffect(group)
+        DispatchQueue.main.async {
+            view.addMotionEffect(group)
+        }
     }
 }

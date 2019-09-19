@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E091716232194CB00C7240C /* ParallaxEffect.swift */; };
+		3E236FE9233290A600ECD155 /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E236FE8233290A600ECD155 /* HistoryTableViewController.swift */; };
 		3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2ADEDC23158564009212EC /* AppDelegate.swift */; };
 		3E2ADEDF23158564009212EC /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2ADEDE23158564009212EC /* WeatherViewController.swift */; };
 		3E2ADEE223158564009212EC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2ADEE023158564009212EC /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		3E091716232194CB00C7240C /* ParallaxEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxEffect.swift; sourceTree = "<group>"; };
+		3E236FE8233290A600ECD155 /* HistoryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewController.swift; sourceTree = "<group>"; };
 		3E2ADED923158564009212EC /* jsonparse.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = jsonparse.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2ADEDC23158564009212EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3E2ADEDE23158564009212EC /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				3E2ADEDE23158564009212EC /* WeatherViewController.swift */,
 				3EE122B6231AFBF000E1AE3F /* CityNotFoundViewController.swift */,
 				3EB674D2232A97910013EA56 /* OnboardingViewController.swift */,
+				3E236FE8233290A600ECD155 /* HistoryTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				3E7779462323ABA0005DE023 /* CityTextField.swift in Sources */,
 				3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */,
 				3EB674D3232A97910013EA56 /* OnboardingViewController.swift in Sources */,
+				3E236FE9233290A600ECD155 /* HistoryTableViewController.swift in Sources */,
 				3E2ADEDD23158564009212EC /* AppDelegate.swift in Sources */,
 				3E77795023253608005DE023 /* NetworkDataFetcherAPIXU.swift in Sources */,
 				3ECC169D231848D8001FECF6 /* Gif+UIImageView.swift in Sources */,
