@@ -19,7 +19,6 @@
 		3E7779482324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7779472324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift */; };
 		3E77794B23250063005DE023 /* SearchUnsplashResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77794A23250063005DE023 /* SearchUnsplashResults.swift */; };
 		3E77795023253608005DE023 /* NetworkServiceApixu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77794F23253608005DE023 /* NetworkServiceApixu.swift */; };
-		3E77795D23258BED005DE023 /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77795C23258BED005DE023 /* ScreenSize.swift */; };
 		3E9D800723218F2F007E6AD3 /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */; };
 		3EB674D3232A97910013EA56 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB674D2232A97910013EA56 /* OnboardingViewController.swift */; };
 		3ECC169D231848D8001FECF6 /* Gif+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECC169C231848D8001FECF6 /* Gif+UIImageView.swift */; };
@@ -50,7 +49,6 @@
 		3E7779472324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcherUnsplash.swift; sourceTree = "<group>"; };
 		3E77794A23250063005DE023 /* SearchUnsplashResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUnsplashResults.swift; sourceTree = "<group>"; };
 		3E77794F23253608005DE023 /* NetworkServiceApixu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceApixu.swift; sourceTree = "<group>"; };
-		3E77795C23258BED005DE023 /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
 		3E9D800623218F2F007E6AD3 /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		3EB674D2232A97910013EA56 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		3ECC169C231848D8001FECF6 /* Gif+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Gif+UIImageView.swift"; sourceTree = "<group>"; };
@@ -168,7 +166,6 @@
 			isa = PBXGroup;
 			children = (
 				3E091716232194CB00C7240C /* ParallaxEffect.swift */,
-				3E77795C23258BED005DE023 /* ScreenSize.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -385,7 +382,6 @@
 				3E2ADEDF23158564009212EC /* WeatherViewController.swift in Sources */,
 				3EE122A92319AF2400E1AE3F /* TypeOfWeather.swift in Sources */,
 				3E7779482324FFC5005DE023 /* NetworkDataFetcherUnsplash.swift in Sources */,
-				3E77795D23258BED005DE023 /* ScreenSize.swift in Sources */,
 				3E7779462323ABA0005DE023 /* CityTextField.swift in Sources */,
 				3E091717232194CB00C7240C /* ParallaxEffect.swift in Sources */,
 				3EB674D3232A97910013EA56 /* OnboardingViewController.swift in Sources */,
