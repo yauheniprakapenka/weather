@@ -34,7 +34,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var lottieView: AnimationView!
     
-    let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
+    let networkDataFetcherAPIXU = NetworkServiceApixu()
     let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
 
     let kindOfWeather = TypeOfWeather()
@@ -51,7 +51,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.networkDataFetcherAPIXU.fetchWeather(city: "London", completion: { [weak self] weather in
+        self.networkDataFetcherAPIXU.getData(city: "London", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -137,7 +137,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         downloadUnsplashPhoto()
         
-        networkDataFetcherAPIXU.fetchWeather(city: city, completion: { [weak self] weather in
+        networkDataFetcherAPIXU.getData(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         self.view.endEditing(true)
