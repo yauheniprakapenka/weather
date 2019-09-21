@@ -68,11 +68,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         addCustomActivityIndicator()
         
-        createGradient()
+        gradientView.alpha = 0
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
         }
+        
     }
     
     @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
@@ -80,6 +81,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         if imageIsShow {
             UIImageView.animate(withDuration: 1.5) {
+                self.gradientView.alpha = 1
+                self.conditionTextLabel.textColor = #colorLiteral(red: 0.1469995975, green: 0.0957666412, blue: 0.3058389723, alpha: 1)
                 self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - ((28 * self.screenSize.width) / 100))
                 self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + ((28 * self.screenSize.width) / 100))
                 self.view.layoutIfNeeded()
@@ -94,6 +97,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             }
         } else {
             UIImageView.animate(withDuration: 1.5) {
+                self.gradientView.alpha = 0
+                self.conditionTextLabel.textColor = .white
                 self.womanWithUmbrellaTrailingConstraint.constant = -55
                 self.womanWithUmbrellaLeadingConstraint.constant = 163
                 self.view.layoutIfNeeded()
@@ -209,13 +214,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     fileprivate func createGradient() {
-        let myNewView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height / 1.7))
+        let myNewView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height / 3))
         myNewView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        
         gradientView.addSubview(myNewView)
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = myNewView.bounds
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.3)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         gradientLayer.colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor, #colorLiteral(red: 0.9663092494, green: 0.9565795064, blue: 0.9565963149, alpha: 0).cgColor]
         myNewView.layer.addSublayer(gradientLayer)

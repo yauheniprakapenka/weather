@@ -32,6 +32,30 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         
         countinueButton.layer.cornerRadius = 15
         
+        createOnboarding()
+    }
+    
+    //indicator
+    @IBAction func pageChanged(_ sender: Any) {
+        scrollView!.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
+    }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        setIndiactorForCurrentPage()
+    }
+    
+    func setIndiactorForCurrentPage()  {
+        let page = (scrollView?.contentOffset.x)!/scrollWidth
+        pageControl?.currentPage = Int(page)
+    }
+    
+    @IBAction func continueButtonTapped(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let weatherViewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewControllerID") as! WeatherViewController
+        present(weatherViewController, animated: false, completion: nil)
+    }
+    
+    fileprivate func createOnboarding() {
         // Вызвать viewDidLayoutSubviews получить динамическую ширину и высоту ScrollView
         self.view.layoutIfNeeded()
         
@@ -70,6 +94,8 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
             slide.addSubview(txt1)
             slide.addSubview(txt2)
             scrollView.addSubview(slide)
+            
+            
         }
         
         //set width of scrollview to accomodate all the slides
@@ -81,26 +107,6 @@ class OnboardingViewController: UIViewController, UIScrollViewDelegate {
         //initial state
         pageControl.numberOfPages = titles.count
         pageControl.currentPage = 0
-    }
-    
-    //indicator
-    @IBAction func pageChanged(_ sender: Any) {
-        scrollView!.scrollRectToVisible(CGRect(x: scrollWidth * CGFloat ((pageControl?.currentPage)!), y: 0, width: scrollWidth, height: scrollHeight), animated: true)
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        setIndiactorForCurrentPage()
-    }
-    
-    func setIndiactorForCurrentPage()  {
-        let page = (scrollView?.contentOffset.x)!/scrollWidth
-        pageControl?.currentPage = Int(page)
-    }
-    
-    @IBAction func continueButtonTapped(_ sender: UIButton) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let weatherViewController = storyboard.instantiateViewController(withIdentifier: "WeatherViewControllerID") as! WeatherViewController
-        present(weatherViewController, animated: false, completion: nil)
     }
     
 
