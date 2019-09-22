@@ -8,7 +8,7 @@
 ```
 
 <b>Возможности:</b>
-- Отображение текущей погоды погоды и его фото
+- Отображение текущей погоды города и его фотография
 - Темная и светлая тема
 - Onboarding
 - История
@@ -34,7 +34,7 @@
 
 <a href="https://ibb.co/BnvLcp9"><img src="https://i.ibb.co/kmzK57t/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-36.png" width="200"></a>
 <a href="https://ibb.co/hdnL8M3"><img src="https://i.ibb.co/PFJNRQg/Simulator-Screen-Shot-i-Phone-X-2019-09-22-at-22-30-03.png" width="200"></a>
-<a href="https://ibb.co/hdnL8M3"><img src="https://i.ibb.co/PFJNRQg/Simulator-Screen-Shot-i-Phone-X-2019-09-22-at-22-30-03.png" width="200"></a>
+<a href="https://ibb.co/hdnL8M3"><img src="https://i.ibb.co/4FNyrJW/Simulator-Screen-Shot-i-Phone-X-2019-09-22-at-22-30-11.png" width="200"></a>
 <a href="https://ibb.co/cQYt90c"><img src="https://i.ibb.co/dDm6vF0/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58.png" width="200"></a>
 
 <b>Видео:</b>
