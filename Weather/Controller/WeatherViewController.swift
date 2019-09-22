@@ -64,6 +64,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         backgroundButtonConstraint.constant = (screenSize.height / 1.9) - 50
         
         self.cityTextField.delegate = self
+        self.cityTextField.keyboardType = .asciiCapable
         self.hideKeyboard()
         
         addCustomActivityIndicator()
@@ -81,8 +82,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         if imageIsShow {
             UIImageView.animate(withDuration: 1.5) {
+                self.createGradient()
                 self.gradientView.alpha = 1
-                self.conditionTextLabel.textColor = #colorLiteral(red: 0.1469995975, green: 0.0957666412, blue: 0.3058389723, alpha: 1)
                 self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - ((28 * self.screenSize.width) / 100))
                 self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + ((28 * self.screenSize.width) / 100))
                 self.view.layoutIfNeeded()
@@ -98,7 +99,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         } else {
             UIImageView.animate(withDuration: 1.5) {
                 self.gradientView.alpha = 0
-                self.conditionTextLabel.textColor = .white
                 self.womanWithUmbrellaTrailingConstraint.constant = -55
                 self.womanWithUmbrellaLeadingConstraint.constant = 163
                 self.view.layoutIfNeeded()
@@ -151,7 +151,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     fileprivate func startCustomActivityIndicator() {
-        _ = Timer.scheduledTimer(withTimeInterval: 0.27, repeats: false, block: { (finished) in
+        _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (finished) in
             self.lottieView.alpha = 1
             self.loadingLabel.alpha = 1
             self.lottieView.play { (finished) in
@@ -223,7 +223,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         gradientLayer.frame = myNewView.bounds
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor, #colorLiteral(red: 0.9663092494, green: 0.9565795064, blue: 0.9565963149, alpha: 0).cgColor]
+        gradientLayer.colors = [#colorLiteral(red: 0.08396864682, green: 0.08843047172, blue: 0.2530170083, alpha: 1).cgColor, #colorLiteral(red: 0.9663092494, green: 0.9565795064, blue: 0.9565963149, alpha: 0).cgColor]
         myNewView.layer.addSublayer(gradientLayer)
     }
     
