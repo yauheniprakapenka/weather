@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  jsonparse
+//  Weather
 //
 //  Created by yauheni prakapenka on 27/08/2019.
 //  Copyright © 2019 yauheni prakapenka. All rights reserved.
@@ -34,7 +34,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var lottieView: AnimationView!
     
-    let networkDataFetcherAPIXU = NetworkDataFetcherAPIXU()
+    let networkDataFetcherAPIXU = NetworkServiceApixu()
     let networkDataFetcherUnsplash = NetworkDataFetcherUnsplash()
 
     let kindOfWeather = TypeOfWeather()
@@ -51,7 +51,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.networkDataFetcherAPIXU.fetchWeather(city: "London", completion: { [weak self] weather in
+        self.networkDataFetcherAPIXU.getData(city: "London", completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         
@@ -64,15 +64,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         backgroundButtonConstraint.constant = (screenSize.height / 1.9) - 50
         
         self.cityTextField.delegate = self
+        self.cityTextField.keyboardType = .asciiCapable
         self.hideKeyboard()
         
         addCustomActivityIndicator()
         
-        createGradient()
+        gradientView.alpha = 0
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
         }
+        
     }
     
     @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
@@ -80,6 +82,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         if imageIsShow {
             UIImageView.animate(withDuration: 1.5) {
+                self.createGradient()
+                self.gradientView.alpha = 1
                 self.womanWithUmbrellaTrailingConstraint.constant = CGFloat(-55 - ((28 * self.screenSize.width) / 100))
                 self.womanWithUmbrellaLeadingConstraint.constant = CGFloat(163 + ((28 * self.screenSize.width) / 100))
                 self.view.layoutIfNeeded()
@@ -94,6 +98,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
             }
         } else {
             UIImageView.animate(withDuration: 1.5) {
+                self.gradientView.alpha = 0
                 self.womanWithUmbrellaTrailingConstraint.constant = -55
                 self.womanWithUmbrellaLeadingConstraint.constant = 163
                 self.view.layoutIfNeeded()
@@ -137,7 +142,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         downloadUnsplashPhoto()
         
-        networkDataFetcherAPIXU.fetchWeather(city: city, completion: { [weak self] weather in
+        networkDataFetcherAPIXU.getData(city: city, completion: { [weak self] weather in
             self?.setValue(from: weather)
         })
         self.view.endEditing(true)
@@ -146,7 +151,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     fileprivate func startCustomActivityIndicator() {
-        _ = Timer.scheduledTimer(withTimeInterval: 0.27, repeats: false, block: { (finished) in
+        _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (finished) in
             self.lottieView.alpha = 1
             self.loadingLabel.alpha = 1
             self.lottieView.play { (finished) in
@@ -209,15 +214,16 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     }
     
     fileprivate func createGradient() {
-        let myNewView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height / 1.7))
+        let myNewView = UIView(frame: CGRect(x: 0, y: 0, width: screenSize.width, height: screenSize.height / 3))
         myNewView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0)
+        
         gradientView.addSubview(myNewView)
         
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = myNewView.bounds
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0.3)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.colors = [#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1).cgColor, #colorLiteral(red: 0.9663092494, green: 0.9565795064, blue: 0.9565963149, alpha: 0).cgColor]
+        gradientLayer.colors = [#colorLiteral(red: 0.08396864682, green: 0.08843047172, blue: 0.2530170083, alpha: 1).cgColor, #colorLiteral(red: 0.9663092494, green: 0.9565795064, blue: 0.9565963149, alpha: 0).cgColor]
         myNewView.layer.addSublayer(gradientLayer)
     }
     

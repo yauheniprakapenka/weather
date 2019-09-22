@@ -1,6 +1,6 @@
 //
 //  Weather.swift
-//  jsonparse
+//  Weather
 //
 //  Created by yauheni prakapenka on 02/09/2019.
 //  Copyright © 2019 yauheni prakapenka. All rights reserved.
