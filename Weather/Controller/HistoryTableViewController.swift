@@ -11,6 +11,7 @@ import UIKit
 class HistoryTableViewController: UITableViewController {
     
     var historyItem = [String]()
+    var imageItem = [UIImage]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class HistoryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
         cell.textLabel?.text = historyItem[indexPath.row]
+        cell.imageView?.image = imageItem[indexPath.row]
         return cell
     }
     
@@ -31,3 +33,4 @@ class HistoryTableViewController: UITableViewController {
     }
     
 }
+

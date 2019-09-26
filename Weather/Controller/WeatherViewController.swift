@@ -42,9 +42,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     var city = "London"
     var imageFromUnsplashURL = ""
-    var arrayForShareWithImage: [UIImage] = []
     var imageIsShow = false
+    var arrayForShareWithImage: [UIImage] = []
     var weatherSearchHistory = [String]()
+    var arrayForHistoryCell = [UIImage]()
     
     let screenSize: CGRect = UIScreen.main.bounds
     
@@ -173,6 +174,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                 if let imageData = data {
                     let image = UIImage(data: imageData)
                     self.unsplashImageView.image = image
+                    
+                    self.arrayForHistoryCell.append(image!)
                 }
             })
         }
@@ -180,12 +183,10 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
     
     func setValue(from weather: SearchApixuResults?) {
         if weather?.location == nil || weather?.current == nil {
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let cityNotFoundViewController = storyboard.instantiateViewController(withIdentifier: "CityNotFoundViewControllerID") as! CityNotFoundViewController
             cityNotFoundViewController.message = "Не получилось найти\nгород \(city)"
             present(cityNotFoundViewController, animated: false, completion: nil)
-            
             return
         }
         
@@ -195,12 +196,14 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
         weatherImageView.image = UIImage(named: gif)
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navVC = segue.destination as! UINavigationController
-        let tableVC = navVC.viewControllers.first as! HistoryTableViewController
-        tableVC.historyItem = weatherSearchHistory
+        let navigationViewController = segue.destination as! UINavigationController
+        let historyViewController = navigationViewController.viewControllers.first as! HistoryTableViewController
+        historyViewController.historyItem = weatherSearchHistory
+        historyViewController.imageItem = arrayForHistoryCell
     }
     
     func addCustomActivityIndicator() {
