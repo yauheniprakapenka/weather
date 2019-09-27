@@ -22,14 +22,22 @@ class HistoryTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
-        cell.textLabel?.text = historyItem[indexPath.row]
-        cell.imageView?.image = imageItem[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID", for: indexPath) as! CustomTableViewCell
+        
+        cell.cityImage?.image = imageItem[indexPath.row]
+        cell.cityImage?.layer.cornerRadius = cell.cityImage.frame.size.height / 2
+        cell.cityImage?.clipsToBounds = true
+        cell.cityNameLabel?.text = historyItem[indexPath.row]
+        
         return cell
     }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
     }
     
 }
