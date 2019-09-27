@@ -39,15 +39,20 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
 
     let kindOfWeather = TypeOfWeather()
     let motionEffect = MotionEffect()
+    let currentDate = CurrentDate()
     
     var city = "London"
     var imageFromUnsplashURL = ""
     var imageIsShow = false
     var arrayForShareWithImage: [UIImage] = []
-    var weatherSearchHistory = [String]()
-    var arrayForHistoryCell = [UIImage]()
+    
+    var arrayOfCity = [String]()
+    var arrayOfDate = [String]()
+    var arrayOfTemperature = [String]()
+    var arrayOfImages = [UIImage]()
     
     let screenSize: CGRect = UIScreen.main.bounds
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +80,27 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         DispatchQueue.global(qos: .userInitiated).async {
             self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
+        arrayOfCity.append(cityTextField.text!)
+        arrayOfDate.append(currentDate.getCurrentDate())
+        
+        if imageIsShow {
+            startCustomActivityIndicator()
+        }
+        
+        city = cityTextField.text!
+        
+        downloadUnsplashPhoto()
+        
+        networkDataFetcherAPIXU.getData(city: city, completion: { [weak self] weather in
+            self?.setValue(from: weather)
+        })
+        self.view.endEditing(true)
+        
+        return false
     }
     
     @IBAction func showPhotoButtonTapped(_ sender: UIButton) {
@@ -131,26 +156,6 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         return image
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        weatherSearchHistory.append(cityTextField.text!)
-        
-        if imageIsShow {
-            startCustomActivityIndicator()
-        }
-        
-        city = cityTextField.text!
-        
-        downloadUnsplashPhoto()
-        
-        networkDataFetcherAPIXU.getData(city: city, completion: { [weak self] weather in
-            self?.setValue(from: weather)
-        })
-        self.view.endEditing(true)
-        
-        return false
-    }
-    
     fileprivate func startCustomActivityIndicator() {
         _ = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: false, block: { (finished) in
             self.lottieView.alpha = 1
@@ -175,7 +180,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                     let image = UIImage(data: imageData)
                     self.unsplashImageView.image = image
                     
-                    self.arrayForHistoryCell.append(image!)
+                    self.arrayOfImages.append(image!)
                 }
             })
         }
@@ -195,15 +200,22 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         conditionTextLabel.text = "\(weather?.current?.condition?.text ?? "")"
         
         let gif = kindOfWeather.fetchTypeOfWeather(kind: weather?.current?.condition?.text ?? "")
+        
         weatherImageView.image = UIImage(named: gif)
         
+        arrayOfTemperature.append(temperatureLabel.text!)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let navigationViewController = segue.destination as! UINavigationController
-        let historyViewController = navigationViewController.viewControllers.first as! HistoryTableViewController
-        historyViewController.historyItem = weatherSearchHistory
-        historyViewController.imageItem = arrayForHistoryCell
+        if segue.identifier == "HistoryVCSeque" {
+            let navigationViewController = segue.destination as! UINavigationController
+            let historyTableViewController = navigationViewController.viewControllers.first as! HistoryTableViewController
+            
+            historyTableViewController.cityNameItem = arrayOfCity
+            historyTableViewController.imageItem = arrayOfImages
+            historyTableViewController.dateItem = arrayOfDate
+            historyTableViewController.temperatureItem = arrayOfTemperature
+        }
     }
     
     func addCustomActivityIndicator() {

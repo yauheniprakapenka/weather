@@ -451,7 +451,7 @@
                                 <connections>
                                     <outlet property="cityImage" destination="p5Y-UD-QXb" id="Gcr-7g-MJL"/>
                                     <outlet property="cityNameLabel" destination="pGd-T1-45K" id="CNT-PK-Tdz"/>
-                                    <outlet property="citySearchTimeLabel" destination="V6P-0c-1IQ" id="hEC-0b-tBe"/>
+                                    <outlet property="citySearchDateLabel" destination="V6P-0c-1IQ" id="hEC-0b-tBe"/>
                                     <outlet property="cityTemperatureLabel" destination="gdK-Vv-Nn0" id="bLG-CE-45T"/>
                                 </connections>
                             </tableViewCell>

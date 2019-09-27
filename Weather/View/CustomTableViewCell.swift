@@ -13,7 +13,7 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var cityImage: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTemperatureLabel: UILabel!
-    @IBOutlet weak var citySearchTimeLabel: UILabel!
+    @IBOutlet weak var citySearchDateLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
