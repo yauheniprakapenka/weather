@@ -406,46 +406,37 @@
                                                 <constraint firstAttribute="height" constant="65" id="zA2-yb-bk6"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-T1-45K">
-                                            <rect key="frame" x="95" y="6" width="284" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="TXM-E0-Iq6"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdK-Vv-Nn0">
-                                            <rect key="frame" x="95" y="33" width="284" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="HGr-ac-XSI"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6P-0c-1IQ">
-                                            <rect key="frame" x="95" y="58" width="304" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="DrO-hK-jiw"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="86R-oI-Bhg">
+                                            <rect key="frame" x="96" y="8" width="298" height="69"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGd-T1-45K">
+                                                    <rect key="frame" x="0.0" y="0.0" width="45" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdK-Vv-Nn0">
+                                                    <rect key="frame" x="0.0" y="25" width="97.5" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V6P-0c-1IQ">
+                                                    <rect key="frame" x="0.0" y="49.5" width="42" height="19.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pGd-T1-45K" firstAttribute="leading" secondItem="p5Y-UD-QXb" secondAttribute="trailing" constant="15" id="A1i-Ip-IoL"/>
-                                        <constraint firstItem="gdK-Vv-Nn0" firstAttribute="top" secondItem="pGd-T1-45K" secondAttribute="bottom" constant="6" id="JC0-ei-TFV"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="gdK-Vv-Nn0" secondAttribute="trailing" constant="15" id="MGK-Co-0pC"/>
-                                        <constraint firstItem="gdK-Vv-Nn0" firstAttribute="leading" secondItem="p5Y-UD-QXb" secondAttribute="trailing" constant="15" id="QKs-1j-55u"/>
-                                        <constraint firstItem="V6P-0c-1IQ" firstAttribute="top" secondItem="gdK-Vv-Nn0" secondAttribute="bottom" constant="4" id="TsC-Mu-PhA"/>
+                                        <constraint firstItem="86R-oI-Bhg" firstAttribute="leading" secondItem="p5Y-UD-QXb" secondAttribute="trailing" constant="16" id="HzC-q1-yrl"/>
+                                        <constraint firstItem="86R-oI-Bhg" firstAttribute="top" secondItem="khz-Db-17d" secondAttribute="top" constant="8" id="Ld5-ZR-gmj"/>
                                         <constraint firstItem="p5Y-UD-QXb" firstAttribute="leading" secondItem="khz-Db-17d" secondAttribute="leading" constant="15" id="c0f-AN-Y4K"/>
-                                        <constraint firstItem="V6P-0c-1IQ" firstAttribute="leading" secondItem="p5Y-UD-QXb" secondAttribute="trailing" constant="15" id="iqf-4s-bAR"/>
                                         <constraint firstItem="p5Y-UD-QXb" firstAttribute="top" secondItem="khz-Db-17d" secondAttribute="top" constant="12.5" id="lHW-cY-iRN"/>
-                                        <constraint firstAttribute="trailing" secondItem="V6P-0c-1IQ" secondAttribute="trailing" constant="15" id="tw8-Cd-C4e"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="pGd-T1-45K" secondAttribute="trailing" constant="15" id="xke-jK-vMQ"/>
-                                        <constraint firstItem="pGd-T1-45K" firstAttribute="top" secondItem="khz-Db-17d" secondAttribute="top" constant="6" id="zrb-lU-FvH"/>
+                                        <constraint firstAttribute="trailing" secondItem="86R-oI-Bhg" secondAttribute="trailing" constant="20" id="oPI-qT-WhK"/>
+                                        <constraint firstAttribute="bottom" secondItem="86R-oI-Bhg" secondAttribute="bottom" constant="8" id="xoH-Sy-UJ0"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

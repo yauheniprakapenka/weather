@@ -17,6 +17,8 @@ class HistoryTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -34,8 +36,19 @@ class HistoryTableViewController: UITableViewController {
         cell.citySearchDateLabel.text = dateItem[indexPath.row]
         cell.cityTemperatureLabel.text = temperatureItem[indexPath.row]
         
+        cell.selectionStyle = .none
+        
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        if indexPath.row == 0 {
+//            // Закрыть клавиатуру по тану на первую ячейку
+//            view.endEditing(true)
+//        } else {
+//
+//        }
+//    }
     
     @IBAction func backButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)

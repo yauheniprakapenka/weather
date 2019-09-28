@@ -77,9 +77,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         
         gradientView.alpha = 0
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
-        }
+        self.motionEffect.applyParallax(toView: self.womanWithUmbrella, magnitude: 60)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
