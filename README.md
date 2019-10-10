@@ -1,6 +1,5 @@
 # Weather
-
-<a href="https://ibb.co/vxCMHBs"><img src="https://i.ibb.co/QF7xfc8/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-51-48-1.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-51-48-1" width="350"></a>
+<a href="https://ibb.co/C6DfFXd"><img src="https://i.ibb.co/gdhxCX1/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-51-48-1.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-51-48-1" width="350"></a>
 
 Разработано на Swift 5 и Xcode 11.0
 ```diff
@@ -32,10 +31,9 @@
 
 <b>Скриншоты:</b>
 
-<a href="https://ibb.co/BnvLcp9"><img src="https://i.ibb.co/kmzK57t/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-36.png" width="200"></a>
-<a href="https://ibb.co/hdnL8M3"><img src="https://i.ibb.co/PFJNRQg/Simulator-Screen-Shot-i-Phone-X-2019-09-22-at-22-30-03.png" width="200"></a>
-<a href="https://ibb.co/hdnL8M3"><img src="https://i.ibb.co/4FNyrJW/Simulator-Screen-Shot-i-Phone-X-2019-09-22-at-22-30-11.png" width="200"></a>
-<a href="https://ibb.co/cQYt90c"><img src="https://i.ibb.co/dDm6vF0/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58.png" width="200"></a>
+<a href="https://ibb.co/Fb1Wvbj"><img src="https://i.ibb.co/pvTPDv9/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-24-58" width="200"></a>
+<a href="https://ibb.co/pjDfSwz"><img src="https://i.ibb.co/ZzsB0X8/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-36.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-36" width="200"></a>
+<a href="https://ibb.co/jZwxV9m"><img src="https://i.ibb.co/zH2L8Wp/Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-42.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-14-at-22-29-42" width="200"></a>
 
 <b>Видео:</b>
 1. Демонстрация приложения [здесь](https://drive.google.com/open?id=1TAhXF7mhvzxKDzeg7sk45yRBtX1ESI2l)
