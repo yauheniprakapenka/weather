@@ -1,10 +1,7 @@
 # Weather
 <a href="https://ibb.co/C6DfFXd"><img src="https://i.ibb.co/gdhxCX1/Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-51-48-1.png" alt="Simulator-Screen-Shot-i-Phone-X-2019-09-05-at-22-51-48-1" width="350"></a>
 
-Разработано на Swift 5 и Xcode 11.0
-```diff
-! В разработке
-```
+Swift 5, Xcode 11.0
 
 <b>Возможности:</b>
 - Отображение текущей погоды города и его фотография
